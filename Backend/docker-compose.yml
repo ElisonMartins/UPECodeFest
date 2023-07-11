@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  db-postgres-page:
+    image: postgres:alpine
+    ports:
+      - "5439:5432"
+    container_name: "db-postgres-page"
+    restart: always
+    volumes:
+      - ./db-postgres-page:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: admuser
+      POSTGRES_PASSWORD: admuser
+volumes:
+  db-postgres-dcex:
+    
