@@ -1,0 +1,21 @@
+@startuml
+
+actor User
+participant "Sistema" as Sistema
+
+User -> Sistema: Cadastrar Equipe
+activate Sistema
+Sistema -> Sistema: Gerar ID da Equipe
+Sistema -> Sistema: Criar Equipe no Banco de Dados
+User -> Sistema: Cadastrar Participante
+Sistema -> Sistema: Validar Dados do Participante
+Sistema -> Sistema: Criar Participante no Banco de Dados
+User -> Sistema: Cancelar Inscrição
+Sistema -> Sistema: Remover Participante do Banco de Dados
+User -> Sistema: Finalizar Inscrições
+Sistema -> Sistema: Enviar E-mail de Confirmação para cada Participante
+User <- Sistema: Resumo dos Dados Cadastrados
+
+deactivate Sistema
+
+@enduml

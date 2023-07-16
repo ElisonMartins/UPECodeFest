@@ -1,0 +1,23 @@
+start
+:Início;
+
+  :Cadastrar Equipe;
+  if (Cadastrar Participante?) then (Sim)
+    repeat
+      :Cadastrar Participante;
+    repeat while (Mais Participantes?);
+  else (Não)
+    :Cancelar Inscrição;
+    stop
+  endif
+  :Finalizar Inscrições;
+  if (Confirmar?) then (sim)
+  :Enviar E-mail de Confirmação;
+    stop
+  else (Não)
+    :Cancelar Inscrição;
+    stop
+  endif
+
+
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+
+left to right direction
+
+actor User as User
+rectangle "Cadastro de Equipe" as Cadastro {
+  usecase "Cadastrar Equipe" as CadastrarEquipe
+  usecase "Cadastrar Participante" as CadastrarParticipante
+  usecase "Cancelar Inscrição" as CancelarInscricao
+  usecase "Finalizar Inscrições" as FinalizarInscricoes
+  usecase "Enviar E-mail de Confirmação" as EnviarEmail
+}
+
+User --> CadastrarEquipe : Acessa
+User --> CadastrarParticipante : Acessa
+User --> CancelarInscricao : Acessa
+User --> FinalizarInscricoes : Acessa
+FinalizarInscricoes --> EnviarEmail : Envia e-mail
+
+@enduml

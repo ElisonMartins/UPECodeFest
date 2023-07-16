@@ -1,0 +1,17 @@
+@startuml
+
+[*] --> EstadoInicial
+
+EstadoInicial --> EstadoCadastroEquipe : Cadastrar Equipe
+EstadoCadastroEquipe --> EstadoCadastroParticipante : Cadastrar Participante
+EstadoCadastroParticipante --> EstadoCadastroParticipante : Validar Dados
+
+EstadoCadastroParticipante --> EstadoFinalizarInscricao : Finalizar Inscrição
+EstadoCadastroParticipante --> EstadoCancelarInscricao : Cancelar Inscrição
+EstadoFinalizarInscricao --> EstadoEnviarEmail : Enviar E-mail de Confirmação
+
+EstadoEnviarEmail --> EstadoFinal : Concluído
+
+EstadoCancelarInscricao --> EstadoInicial : Cancelamento Concluído
+
+@enduml
