@@ -64,14 +64,14 @@ export const getAllById = async (equipeId) => {
   
 //Listar todos os emails dos usuários que possuem o mesmo id da equipe
 //Talvez seja usado quando for mandar os emails para os participantes.
-export const getAllEmail = async (equipeId) => {
-    const emails = await prisma.usuario.findMany({
-      where: {
-        equipeId,
-      },
-      select: {
-        email: true,
-      },
-    });
-    return emails;
-  };
+export const getEmails = async (equipeId) =>{
+  const emails = await prisma.usuario.findMany({
+    where:{
+      equipeId,
+    },
+    select:{
+      email:true
+    }
+  })
+  return emails
+}

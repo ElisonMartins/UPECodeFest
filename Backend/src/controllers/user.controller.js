@@ -1,5 +1,5 @@
 import e from "express"
-import{createUser, getAll, getById, deleteUser, deleteAllUsers, getAllById, getAllEmail} from "../repositories/user.repository"
+import{createUser, getAll, getById, deleteUser, deleteAllUsers, getAllById, getEmails} from "../repositories/user.repository"
 import { prisma } from "../services/prisma"
 import {userValidation} from "../validations/user.validation"
 
@@ -77,10 +77,10 @@ export const getAllById = async(req, res) => {
 }
 
 //Listar todos os emails dos usuários que possuem o mesmo id da equipe
-export const getEmails = async(req, res) => {
+export const getAllEmails = async(req,res) =>{
     try {
-        const emails = await getAllEmail(Number(req.params.equipeId))
-        res.status(200).send(emails)
+        const email = await getEmails(Number(req.params.equipeId))
+        res.status(200).send(email)
     } catch (e) {
         res.status(400).send(e)
         console.log(e)
