@@ -1,5 +1,5 @@
 import e from "express"
-import{createUser, getAll, getById} from "../repositories/user.repository"
+import{createUser, getAll, getById, deleteUser, deleteAllUsers, getAllById, getAllEmail} from "../repositories/user.repository"
 import { prisma } from "../services/prisma"
 import {userValidation} from "../validations/user.validation"
 
@@ -40,4 +40,49 @@ export const getId = async(req, res) => {
     }
 }
 
+//Deletar usuario por cpf ( não vai ser usado)
+export const remove = async(req, res) =>{
+   try {
+    await deleteUser(req.params.cpf)
+    res.status(200).send()
+   } catch (e) {
+    res.status(400).send(e)
+    console.log(e)
+   }
+}
 
+
+//Deletar todos usuários que contém o mesmo id da equipe
+export const removeAll = async(req,res) =>{
+    try {
+        await deleteAllUsers(Number(req.params.equipeId))
+        res.status(200).send()
+    } catch (e) {
+        res.status(400).send(e)
+        console.log(e)
+    }
+}
+
+
+//Listar todos os usuários que possuem o mesmo id da equipe
+//também vai listar o nome que colocaram na equipe
+export const getAllById = async(req, res) => {
+    try {
+        const user = await getAllById(Number(req.params.equipeId))
+        res.status(200).send(user)
+    } catch (e) {
+        res.status(400).send(e)
+        console.log(e)
+    }
+}
+
+//Listar todos os emails dos usuários que possuem o mesmo id da equipe
+export const getEmails = async(req, res) => {
+    try {
+        const emails = await getAllEmail(Number(req.params.equipeId))
+        res.status(200).send(emails)
+    } catch (e) {
+        res.status(400).send(e)
+        console.log(e)
+    }
+}
