@@ -14,8 +14,8 @@ model Usuario{
   email String @unique
   celular String 
   participarCurso Boolean 
-  equipeId Int?
-  equipe Equipe? @relation(fields: [equipeId], references: [id])
+  equipeId Int
+  equipe Equipe @relation(fields: [equipeId], references: [id])
   
 }
 
