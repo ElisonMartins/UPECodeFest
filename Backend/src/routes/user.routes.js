@@ -1,4 +1,4 @@
-import{create, get,getId, remove, removeAll, getAllById, getAllEmails} from "../controllers/user.controller"
+import{create, get,getId, remove, removeAll, getAllById, getAllEmails, } from "../controllers/user.controller"
 
 
 const userRoutes = app =>{
