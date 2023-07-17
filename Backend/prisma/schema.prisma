@@ -16,6 +16,7 @@ model Usuario{
   participarCurso Boolean 
   equipeId Int
   equipe Equipe @relation(fields: [equipeId], references: [id])
+  cursoNome String?
   
 }
 
