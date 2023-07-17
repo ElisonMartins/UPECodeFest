@@ -1,4 +1,4 @@
-import{createUser} from "../repositories/user.repository"
+import{createUser, getAll} from "../repositories/user.repository"
 import { prisma } from "../services/prisma"
 import {userValidation} from "../validations/user.validation"
 
@@ -17,8 +17,14 @@ export const create = async(req, res) =>{
 }
 
 //Listar todos os usuários
-export const getAll = async() =>{
-    const user = await prisma.usuario.findMany({})
-    return user
+export const get = async (req, res) =>{
+    try {
+        const users = await getAll()
+        res.status(200).send(users)
+    } catch (e) {
+        res.status(400).send(e)
+    }
 }
+
+
 
