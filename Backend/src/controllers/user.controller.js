@@ -1,4 +1,5 @@
-import{createUser, getAll} from "../repositories/user.repository"
+import e from "express"
+import{createUser, getAll, getById} from "../repositories/user.repository"
 import { prisma } from "../services/prisma"
 import {userValidation} from "../validations/user.validation"
 
@@ -13,6 +14,7 @@ export const create = async(req, res) =>{
         res.status(200).send()
     } catch (e) {
         res.status(400).send(e)
+        console.log(e)
     }
 }
 
@@ -23,8 +25,19 @@ export const get = async (req, res) =>{
         res.status(200).send(users)
     } catch (e) {
         res.status(400).send(e)
+        console.log(e)
     }
 }
 
+//Listar usuário por cpf (não vai ser usado)
+export const getId = async(req, res) => {
+    try {
+        const user = await getById(req.params.cpf)
+        res.status(200).send(user)
+    } catch (e) {
+        res.status(400).send(e)
+        console.log(e)
+    }
+}
 
 

@@ -1,4 +1,4 @@
-import{create, get} from "../controllers/user.controller"
+import{create, get,getId} from "../controllers/user.controller"
 
 
 const userRoutes = app =>{
@@ -7,6 +7,9 @@ const userRoutes = app =>{
 
     //listar todos os usuários
     app.get("/user/get/all", get)
+
+    //listar usuario por id ( não vai ser usado)
+    app.get("/user/get/byid/:cpf", getId)
 }
  export default userRoutes
 
