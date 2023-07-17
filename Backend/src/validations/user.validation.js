@@ -7,5 +7,6 @@ export const userValidation = yup.object({
   email: yup.string().required(),
   celular: yup.string().required(), 
   participarCurso: yup.boolean().required(),
-  equipeId: yup.number().required()
+  equipeId: yup.number().required(),
+  cursoNome: yup.string().nullable(true)
 })
