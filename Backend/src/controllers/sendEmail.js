@@ -1,5 +1,6 @@
 const { PrismaClient } = require('@prisma/client');
 const nodemailer = require('nodemailer');
+const emailTemplate = require("../templates/sendEmailsTemplate")
 require("dotenv").config();
 
 
@@ -37,6 +38,7 @@ exports.sendEmailsByEquipeId = async (req, res) => {
       },
       select: {
         email: true,
+        nome:true,
       },
     });
 
@@ -46,8 +48,8 @@ exports.sendEmailsByEquipeId = async (req, res) => {
     }
 
     for (const user of emails) {
-      const { email } = user;
-      await sendEmail(email, 'Confirmação de envio', 'Testar novamente parte final');
+      const { email, nome } = user;
+      await sendEmail(email, 'Confirmação de participação', emailTemplate(nome));
     }
 
     await prisma.$disconnect(); // Fechar a conexão com o Prisma após o uso
@@ -65,7 +67,7 @@ const sendEmail = async (to, subject, text) => {
     from: 'manoeudavi20@gmail.com',
     to: to,
     subject: subject,
-    text: text,
+    html: text,
   };
 
   try {
