@@ -12,7 +12,7 @@ const imageBytes = fs.readFileSync(imageRelativePath);
 // Conversão para base64
 const base64Image = imageBytes.toString('base64');
 
-const html = function(nome){
+const html = function(nome, cpf, email, cursoFaculdade, periodoFaculdade, faculdadeNome, nomeEquipe, dataCriacao, id ){
     return `
     <!DOCTYPE html>
     <html>
@@ -55,31 +55,31 @@ const html = function(nome){
                 <label style="color: #910142;">${nome}</label>
                 <br>
                 <label style="color: #910142;font-weight: bold;" for="cpf">CPF:</label>
-                <label style="color: #910142;">171190064588</label>
+                <label style="color: #910142;">${cpf}</label>
                 <br>
                 <label style="color: #910142;font-weight: bold;" for="email">Email:</label>
-                <label style="color: #910142;">manoeudavi3@gmail.com</label>
+                <label style="color: #910142;">${email}</label>
                 <br>
                 <label style="color: #910142;font-weight: bold;" for="curso">Curso:</label>
-                <label style="color: #910142;">Engenharia de Software</label>
+                <label style="color: #910142;">${cursoFaculdade}</label>
                 <br>
                 <label style="color: #910142;font-weight: bold;" for="periodo">Período do Curso:</label>
-                <label style="color: #910142;">quinto</label>
+                <label style="color: #910142;">${periodoFaculdade}º</label>
                 <br>
                 <label style="color: #910142;font-weight: bold;" for="campus">Campus:</label>
-                <label style="color: #910142;">Rural</label>
+                <label style="color: #910142;">${faculdadeNome}</label>
             </div>
     
             <div style="border: 1px solid #0ec0c1; padding: 10px; margin: 10px;">
                 <h2 style="text-align: center;font-size: 16px;margin-bottom: 25px; color: #6c043c;">DADOS DA EQUIPE</h2>
                 <label style="color: #910142;font-weight: bold;" for="nome_equipe">Nome da Equipe:</label>
-                <label style="color: #910142;">RunFaster</label>
+                <label style="color: #910142;">${nomeEquipe}</label>
                 <br>
                 <label style="color: #910142;font-weight: bold;" for="data_criacao_equipe">Data de Criação da Equipe:</label>
-                <label style="color: #910142;">10/11/2023</label>
+                <label style="color: #910142;">${dataCriacao}</label>
                 <br>
                 <label style="color: #910142;font-weight: bold;" for="id_equipe">ID da Equipe:</label>
-                <label style="color: #910142;">5</label>
+                <label style="color: #910142;">${id}</label>
             </div>
     
             <div style="border: 1px solid #0ec0c1; padding: 10px; margin: 10px;">

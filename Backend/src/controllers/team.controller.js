@@ -1,9 +1,12 @@
 import{createTeam, deleteTeam} from "../repositories/team.repository"
+import {teamValidation} from "../validations/team.validation"
 
 
 //Criar time
 export const create = async(req, res) =>{
     try {
+        //validar os dados antes de criar
+        await teamValidation.validate(req.body)
         const user = await createTeam(req.body)
         res.status(200).send()
     } catch (e) {

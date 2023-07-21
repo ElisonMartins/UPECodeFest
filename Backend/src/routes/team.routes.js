@@ -2,9 +2,9 @@ import{create, deleteTeam} from "../controllers/team.controller"
 
 
 const teamRoutes = app =>{
-    //cadastrar usuário
+    //cadastrar time
     app.post("/team/create", create)
-    
+    //deletar time
     app.delete("/team/delete/:equipeId")
 }
 

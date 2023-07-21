@@ -1,5 +1,5 @@
 import e from "express"
-import{createUser, getAll, getById, deleteUser, deleteAllUsers, getAllById, getEmails} from "../repositories/user.repository"
+import{createUser, deleteAllUsers, getAllById, getEmails} from "../repositories/user.repository"
 import { prisma } from "../services/prisma"
 import {userValidation} from "../validations/user.validation"
 
@@ -7,7 +7,7 @@ import {userValidation} from "../validations/user.validation"
 export const create = async(req, res) =>{
     try {
 
-        //validar os dados antes
+        //validar os dados antes de criar
         await userValidation.validate(req.body)
 
         const user = await createUser(req.body)
@@ -16,39 +16,6 @@ export const create = async(req, res) =>{
         res.status(400).send(e)
         console.log(e)
     }
-}
-
-//Listar todos os usuários
-export const get = async (req, res) =>{
-    try {
-        const users = await getAll()
-        res.status(200).send(users)
-    } catch (e) {
-        res.status(400).send(e)
-        console.log(e)
-    }
-}
-
-//Listar usuário por cpf (não vai ser usado)
-export const getId = async(req, res) => {
-    try {
-        const user = await getById(req.params.cpf)
-        res.status(200).send(user)
-    } catch (e) {
-        res.status(400).send(e)
-        console.log(e)
-    }
-}
-
-//Deletar usuario por cpf ( não vai ser usado)
-export const remove = async(req, res) =>{
-   try {
-    await deleteUser(req.params.cpf)
-    res.status(200).send()
-   } catch (e) {
-    res.status(400).send(e)
-    console.log(e)
-   }
 }
 
 
