@@ -9,7 +9,7 @@ const options = {
 
 const pdfTransporter = function (nome, cpf, email, cursoFaculdade, periodoFaculdade, faculdadeNome, nomeEquipe, dataCriacao, id ) {
     return new Promise((resolve, reject) => {
-      const pdfPath = `confirmacao_de_inscrição.pdf`; 
+      const pdfPath = `confirmacao_de_inscrição_${email}.pdf`; 
   
       pdf.create(html(nome, cpf, email, cursoFaculdade, periodoFaculdade, faculdadeNome, nomeEquipe, dataCriacao, id ), options).toFile(pdfPath, function (err, res) {
         if (err) {

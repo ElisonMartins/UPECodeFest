@@ -30,7 +30,7 @@ const sendEmail = async (to, subject, text, pdfPath) => {
     html: text,
     attachments: [
       {
-        filename: 'confirmação_de_inscricao.pdf', // Nome do arquivo PDF no anexo
+        filename: pdfPath, // Nome do arquivo PDF no anexo
         path: pdfPath, // Caminho para o arquivo PDF personalizado
       },
     ],
@@ -65,7 +65,7 @@ exports.sendEmailsByEquipeId = async (req, res) => {
 
     const userInfo = await prisma.usuario.findMany({
       where: {
-        equipeId: 1
+        equipeId: equipeId
       },
       select: {
         nome: true,
@@ -91,7 +91,7 @@ exports.sendEmailsByEquipeId = async (req, res) => {
 
         const { nome, cpf, email, cursoFaculdade, periodoFaculdade, faculdadeNome } = user;
         const pdfPath = await pdfTransporter(nome, cpf, email, cursoFaculdade, periodoFaculdade, faculdadeNome, nomeEquipe, formattedDataCriacao, id); // Gera o PDF personalizado
-        const caminhoDoPdf = `./confirmacao_de_inscrição.pdf`; // Caminho do PDF gerado na mesma pasta que pdfTransporter
+        const caminhoDoPdf = `./confirmacao_de_inscrição_${email}.pdf`; // Caminho do PDF gerado na mesma pasta que pdfTransporter
         await sendEmail(email, 'Confirmação de participação', emailTemplate(nome), caminhoDoPdf);
         await fs.unlink(pdfPath); // Exclui o arquivo PDF após o envio do email
         console.log(`PDF ${pdfPath} excluído após o envio do email.`);

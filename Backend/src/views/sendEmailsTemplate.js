@@ -6,7 +6,7 @@ var emailTemplate = function(nome){
     <p>Se prepare e traga consigo muita disposição e vontade de aprender. Estamos ansiosos para vê-lo(a) lá!</p>
     <p>Caso surja alguma dúvida ou necessite de mais informações ou correções do formulário, não hesite em nos contatar através do email: [Contato da Organização].</p>
     <br>
-    <p>A baixo está um documento comprovatório da sua inscrição. Imprima-o e leve-o no dia da maratona.</p>
+    <p>Abaixo está um documento comprovatório da sua inscrição. <em>Imprima-o e leve-o no dia da maratona.</em></p>
     `
 
 }
