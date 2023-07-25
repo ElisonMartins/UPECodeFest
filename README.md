@@ -2,7 +2,7 @@
   <ul>
     <li>David Emmanoel Lopes Rocha (Back-end e Gerente de Projeto) - <a href="https://www.instagram.com/davidemmannoel/">@davidemmannoel</a></li>
     <li>Elison Martins de Melo (Front-end e Gerente de Projeto) - <a href="https://www.instagram.com/elison_mrtns/">@elison_mrtns
-    <li> Rônald Macário Cavalcante (Back-end) - <a href="https://www.instagram.com/ronald.macario/">@RonaldMacario13</a></li>
+    <li> Rônald Macário Cavalcante (Back-end) - <a href="https://www.instagram.com/ronald.macario/">@ronald.macario</a></li>
     <li>Antonio Jacome Sereno (Back-end)</li>
     
     
