@@ -9,18 +9,9 @@
     margin-bottom: 2rem;
 }
 
-.steps::after{
-    content: "";
-    width: 380px;
-    border-bottom: 1px solid #ccc;
-    position: absolute;
-    top: 25px;
-
-}
-
 .step{
     text-align: center;
-    background-color: #fff;
+    background-color: transparent;
     z-index: 1;
     width: 120px;
     padding: 0.5rem ;
@@ -29,12 +20,18 @@
 .step svg {
     font-size: 1.6rem;
     margin-bottom: 0.2rem;
+    fill: #efa0be;
 }
 
 .active{
     font-weight: bold;
+    
+}
+
+.active p{
+    color: #dc0968 ;
 }
 
 .active > svg {
-    fill: #7076f4;
+    fill: #dc0968;
 }

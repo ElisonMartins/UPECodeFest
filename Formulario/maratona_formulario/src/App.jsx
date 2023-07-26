@@ -10,6 +10,8 @@ import Steps from './componentes/Steps';
 //HOOKS 
 import { useForm } from './hooks/useForm';
 import { useState } from 'react';
+//AxiosFunctions
+import{cadastrar} from '../src/componentes/ReviewForm'
 
 
 function App() {
@@ -24,8 +26,15 @@ function App() {
     periodo:"",
     nomeTeam:"",
     textos:"",
-
+    idTeam:"",
   }
+
+  const handleTeamChange = (name, id) => {
+    // Atualize o ID da equipe selecionada no estado do componente App
+    setData((prev) => {
+      return { ...prev, idTeam: id };
+    });
+  };
   const [data, setData] = useState(formTemplate)
 
   const updateFieldHandler = (key,value) =>{
@@ -36,7 +45,11 @@ function App() {
 
   const formComponents = 
   [
-  <TeamForm data={data} updateFieldHandler={updateFieldHandler}/>, 
+  <TeamForm data={data} 
+  updateFieldHandler={updateFieldHandler}
+  handleTeamChange={handleTeamChange} 
+  
+  />, 
   <UserForm data={data} updateFieldHandler={updateFieldHandler}/>, 
   <ReviewForm data={data}/> 
 ]
@@ -67,14 +80,14 @@ function App() {
                 <GrFormNext/>
               </button>
             ) : (
-              <button type='button'>
+              <button type='button' onClick={()=> cadastrar(data)}>
               <span>Finalizar</span>
               <FiSend/>
             </button>
             )}
             </div>
           </form>
-            {!isFirstStep && !isLastStep && <button>teste</button>}
+
         </div>
       </div>
     

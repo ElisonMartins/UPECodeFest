@@ -12,16 +12,41 @@
 .header h2{
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: #210123;
+}
+
+.header p{
+    color: #210123;
+    font-size: 1.2rem;
+}
+
+.teamName{
+    color: #f2bcd0
 }
 
 /*Formulários*/
 
 .form_container{
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     background-color: #fff;
     padding: 1.5rem;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(100, 100, 111, 0.2) 25px 20px 5px 0px;
+    border-radius: 30px;
+    background-image: url("./assets/background.png");
+    background-size: cover;
+}
+
+.form_control input{
+    background-color:#963156;
+    color: #f2bcd0;
+    border: 2px solid #e3fafabd;
+    padding: 0.6rem;
+    border-radius: 10px;
+}
+
+.form_control input::placeholder {
+    color: #f2bcd0;
 }
 
 .form_container form{
@@ -46,7 +71,7 @@ label{
     font-size: 0.9rem;
 }
 
-input, textarea{
+input{
     padding: 0.6rem;
     border: none;
     border-radius: 3px;
@@ -68,12 +93,69 @@ input, textarea{
     gap: 0.5rem;
     align-items: center;
     border-radius: 3px;
-    background-color: #dfdfdf;
+    background-color:#f2bcd0;
     cursor: pointer;
     border: none;
     transition: 0.3s;
+    border-radius: 10px;
 }
 
 .actions button:hover{
     background-color: #cfcfcf;
 }
+
+.select_groupe {
+    border: 1px solid #e3fafabd;
+    border-radius: 10px; 
+    padding: 8px 12px; 
+    font-size: 16px; 
+    outline: none;
+    background-color: #963156 ; 
+    cursor: pointer; 
+    color: #f2bcd0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;letter-spacing: 0.5px;
+    transition: 0.3s;
+    background-image: url("./assets/down-arrow.png");
+    background-repeat: no-repeat;
+    background-position: 355px;
+    
+  }
+
+  .select_groupe::-ms-expand{
+    display: none;
+  }
+
+  .select_groupe:hover{
+    border: 1px solid #dc0968;
+  }
+  .select_groupe option{
+    color: #f2bcd0;
+    letter-spacing: 1.2px;
+  }
+
+  textarea{
+    background-color:#963156;
+    color: #f2bcd0;
+    border: 2px solid #e3fafabd;
+    padding: 0.6rem;
+    border-radius: 10px;
+  }
+
+  textarea::placeholder {
+    color: #f2bcd0;
+}
+
+  .review_form{
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+  
+  p {
+    margin-bottom: 5px;
+  }
