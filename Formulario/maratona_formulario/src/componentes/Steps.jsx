@@ -14,7 +14,7 @@ const Steps = ({currentStep}) => {
         </div>
         <div className={`step ${currentStep >=1 ? "active": ""}`}>
             <AiOutlineUser/>
-            <p>Cadastrar Participante</p>
+            <p>Fazer Cadastro</p>
         </div>
         <div className={`step ${currentStep >=2 ? "active": ""}`}>
             <FiSend/>

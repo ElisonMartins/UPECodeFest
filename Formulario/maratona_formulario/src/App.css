@@ -40,7 +40,7 @@
 .form_control input{
     background-color:#963156;
     color: #f2bcd0;
-    border: 2px solid #e3fafabd;
+    border: 1px solid #e3fafabd;
     padding: 0.6rem;
     border-radius: 10px;
 }
@@ -138,7 +138,7 @@ label{
     height: 150px;
     background-color:#963156;
     color: #f2bcd0;
-    border: 2px solid #e3fafabd;
+    border: 1px solid #e3fafabd;
     padding: 0.6rem;
     border-radius: 10px;
   }
@@ -153,7 +153,7 @@ label{
     margin: 0 auto;
     background-color:#963156;
     padding: 0.8rem;
-    border: 2px solid #e3fafabd;
+    border: 1px solid #e3fafabd;
     border-radius: 10px;
   }
 
