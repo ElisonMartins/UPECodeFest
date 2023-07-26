@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 
-const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
+const TeamForm = ({data,updateFieldHandler, handleTeamChange}) => {
   const teamNames = [
     { id: 1, name: "CodeSprinters" },
     { id: 2, name: "BitBusters" },

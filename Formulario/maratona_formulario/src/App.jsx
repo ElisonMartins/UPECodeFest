@@ -24,28 +24,38 @@ function App() {
     faculdade: "",
     curso:"",
     periodo:"",
+  }
+
+  const formTeamTemplate = {
     nomeTeam:"",
-    textos:"",
-    idTeam:"",
   }
 
   const handleTeamChange = (name, id) => {
     // Atualize o ID da equipe selecionada no estado do componente App
     setData((prev) => {
-      return { ...prev, idTeam: id };
+      return { ...prev, equipeId: id };
     });
+
+    setDataTeam((prev) =>{
+      return {...prev, equipeId:id}
+    })
   };
   const [data, setData] = useState(formTemplate)
+  const [dataTeam, setDataTeam] = useState(formTeamTemplate)
 
   const updateFieldHandler = (key,value) =>{
     setData((prev) => {
       return{...prev, [key]: value}
     })
+
+    setDataTeam((prev) =>{
+      return {...prev, [key]:value}
+    })
   }
 
   const formComponents = 
   [
-  <TeamForm data={data} 
+  <TeamForm data={dataTeam} 
   updateFieldHandler={updateFieldHandler}
   handleTeamChange={handleTeamChange} 
   
@@ -81,7 +91,7 @@ function App() {
                 <GrFormNext/>
               </button>
             ) : (
-              <button type='button' onClick={()=> cadastrar(data)}>
+              <button type='button' onClick={()=> cadastrar(data, dataTeam)}>
               <span>Confirmar</span>
               <FiSend/>
             </button>
