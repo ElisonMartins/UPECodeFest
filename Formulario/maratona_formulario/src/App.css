@@ -45,6 +45,10 @@
     border-radius: 10px;
 }
 
+.form_control label{
+    color: #f2bcd0;
+}
+
 .form_control input::placeholder {
     color: #f2bcd0;
 }
