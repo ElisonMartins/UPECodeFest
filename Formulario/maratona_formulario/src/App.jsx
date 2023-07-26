@@ -64,6 +64,7 @@ function App() {
           <p>Maratona de Programação - 2023</p>
         </div>
         <div className="form_container">
+
           <Steps currentStep={currentStep}/>
           <form onSubmit={(evento)=>{
             changeStep(currentStep + 1, evento)
@@ -81,7 +82,7 @@ function App() {
               </button>
             ) : (
               <button type='button' onClick={()=> cadastrar(data)}>
-              <span>Finalizar</span>
+              <span>Confirmar</span>
               <FiSend/>
             </button>
             )}

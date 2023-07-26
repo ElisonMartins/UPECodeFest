@@ -19,7 +19,7 @@ const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
   return (
     <div>
       <div className="form_control">
-        <label className="teamName" htmlFor="nomeTeam">Nome da Equipe:</label>
+        <label className="teamName" htmlFor="nomeTeam">Equipe:</label>
         <select className="select_groupe"
           name="nomeTeam"
           id="team"
@@ -33,8 +33,8 @@ const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
             updateFieldHandler("nomeTeam", name); // Atualiza o nome da equipe no estado do componente App
           }}
         >
-          <option value="option_select" disabled>
-            Selecione um nome para sua equipe
+          <option className="option-select" value="" disabled>
+            <label htmlFor="">Escolha uma equipe</label>
           </option>
           {teamNames.map((team) => (
             <option key={team.id} value={team.name}>
@@ -43,17 +43,8 @@ const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
           ))}
         </select>
       </div>
-      <div className="form_control">
-        <textarea
-          name="textos"
-          id="textos"
-          cols="30"
-          rows="8"
-          placeholder="Breve descrição da equipe e suas habilidades"
-          required
-          value={data.textos || ""}
-          onChange={(e) => updateFieldHandler("textos", e.target.value)}
-        ></textarea>
+      <div className="review-group">
+       
       </div>
     </div>
   );

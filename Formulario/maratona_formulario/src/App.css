@@ -75,12 +75,6 @@ label{
     font-size: 0.9rem;
 }
 
-input{
-    padding: 0.6rem;
-    border: none;
-    border-radius: 3px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0;
-}
 
 /*Ações*/
 
@@ -139,13 +133,16 @@ input{
     letter-spacing: 1.2px;
   }
 
-  textarea{
+
+  .review-group{
+    height: 150px;
     background-color:#963156;
     color: #f2bcd0;
     border: 2px solid #e3fafabd;
     padding: 0.6rem;
     border-radius: 10px;
   }
+
 
   textarea::placeholder {
     color: #f2bcd0;
@@ -154,7 +151,16 @@ input{
   .review_form{
     max-width: 400px;
     margin: 0 auto;
+    background-color:#963156;
+    padding: 0.8rem;
+    border: 2px solid #e3fafabd;
+    border-radius: 10px;
   }
+
+  .review_form label, .review_form h2{
+    color: #f2bcd0;
+  }
+
   
   h2 {
     margin-bottom: 10px;

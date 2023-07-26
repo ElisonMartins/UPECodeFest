@@ -6,6 +6,7 @@ import React from "react";
 export const cadastrar = (data)=>{
   try {
    console.log(data)
+   alert("Em alguns instantes você receberá um email de confirmação")
   } catch (error) {
    console.log(error)
   }
@@ -17,29 +18,29 @@ const ReviewForm = ({data}) => {
     <div className="review_form">
       <h2>Informações do participante </h2>
       <p>
-        <strong>Nome:</strong> {data.nome}
+        <label>Nome:</label> {data.nome}
       </p>
       <p>
-        <strong>Email:</strong> {data.email}
+        <label>Email:</label> {data.email}
       </p>
       <p>
-        <strong>CPF:</strong> {data.cpf}
+        <label>CPF:</label> {data.cpf}
       </p>
       <p>
-        <strong>Celular:</strong> {data.celular}
+        <label>Celular:</label> {data.celular}
       </p>
       <p>
-        <strong>Curso:</strong> {data.curso}
+        <label>Curso:</label> {data.curso}
       </p>
       <p>
-        <strong>Período da Faculdade:</strong>{data.periodo}
+        <label>Período da Faculdade:</label>{data.periodo}
       </p>
       <p>
-        <strong>Nome da Equipe Escolhida:</strong> {data.nomeTeam}
+        <label>Nome da Equipe Escolhida:</label> {data.nomeTeam}
       </p>
 
       <p>
-        <strong>Id da equipe:</strong> {data.idTeam}
+        <label>Id da equipe:</label> {data.idTeam}
       </p>
 
     </div>
