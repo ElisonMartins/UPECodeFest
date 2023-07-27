@@ -1,12 +1,30 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import axios from 'axios'
+import axios from "axios";
 
-//Axios sendo usado para cadastrar aqui
-export const cadastrar = async(data)=>{
+// Função para obter a quantidade de participantes em uma equipe
+const getTeamParticipantsCount = async (equipeId) => {
   try {
-    const cadastrarUsuario =  await axios.post("http://localhost:3001/user/create", {
+    const response = await axios.get(`http://localhost:3001/team/get/length/${equipeId}`);
+    return response.data.numberOfUsers;
+  } catch (error) {
+    throw new Error("Erro ao obter a quantidade de participantes da equipe.");
+  }
+};
+
+
+// Função cadastrar que utiliza a função getTeamParticipantsCount
+export const cadastrar = async (data) => {
+  try {
+    // Verificar se o grupo está cheio
+    const participantsCount = await getTeamParticipantsCount(data.equipeId);
+    if (participantsCount === 3) {
+      alert("Esse grupo já está cheio");
+      return; // Sai da função se o grupo estiver cheio
+    }
+    // Cadastro de Participante
+    const cadastrarUsuario = await axios.post("http://localhost:3001/user/create", {
       cpf: data.cpf,
       nome: data.nome,
       email: data.email,
@@ -16,15 +34,24 @@ export const cadastrar = async(data)=>{
       cursoFaculdade: data.curso,
       periodoFaculdade: data.periodo,
     });
-    console.log('Usuário cadastrado com sucesso:', cadastrarUsuario.data);
+
+    console.log("Usuário cadastrado com sucesso:", cadastrarUsuario.data);
+
+    alert(
+      "Sua participação foi cadastrada com sucesso. Em alguns instantes você receberá um email de confirmação."
+    );
+
+    window.location.reload();
+
     return cadastrarUsuario.data;
   } catch (error) {
-    console.log(error)
-  }
- }
+    console.log(error);
 
-const ReviewForm = ({data}) => {
-  
+  }
+};
+
+
+const ReviewForm = ({ data }) => {
   return (
     <div className="review_form">
       <h2>Informações do participante </h2>
@@ -44,7 +71,8 @@ const ReviewForm = ({data}) => {
         <label>Curso:</label> {data.curso}
       </p>
       <p>
-        <label>Período da Faculdade:</label>{data.periodo}
+        <label>Período da Faculdade:</label>
+        {data.periodo}
       </p>
       <p>
         <label>Nome da Equipe Escolhida:</label> {data.nomeTeam}
@@ -53,7 +81,6 @@ const ReviewForm = ({data}) => {
       <p>
         <label>Id da equipe:</label> {data.equipeId}
       </p>
-
     </div>
   );
 };

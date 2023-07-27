@@ -15,7 +15,7 @@ const TeamForm = ({data,updateFieldHandler, handleTeamChange}) => {
     { id: 9, name: "BitMavericks" },
     { id: 10, name: "ProgSprint" },
   ];
-
+// getTeamLength().then((info)=>{alert(`Até agora essa equipe possui ${info.numberOfUsers} participantes`)})
   return (
     <div>
       <div className="form_control">
@@ -26,11 +26,11 @@ const TeamForm = ({data,updateFieldHandler, handleTeamChange}) => {
           required
           value={data.nomeTeam || ""}
           onChange={(e) => {
-            const name = e.target.value; // Nome da equipe selecionada
+            const name = e.target.value;
             const selectedTeam = teamNames.find((team) => team.name === name);
-            const id = selectedTeam ? selectedTeam.id : null; // ID da equipe selecionada
-            handleTeamChange(name, id); // Chama a função handleTeamChange passando o nome e o ID da equipe selecionada
-            updateFieldHandler("nomeTeam", name); // Atualiza o nome da equipe no estado do componente App
+            const id = selectedTeam ? selectedTeam.id : null; 
+            handleTeamChange(name, id); 
+            updateFieldHandler("nomeTeam", name); 
           }}
         >
           <option className="option-select" value="" disabled>
