@@ -86,7 +86,7 @@ const UserForm = ({ data, updateFieldHandler }) => {
           placeholder="Seu Período"
           required
           value={data.periodo || ""}
-          onChange={(e) => updateFieldHandler("periodo", e.target.value)}
+          onChange={(e) => updateFieldHandler("periodo", Number(e.target.value))}
         />
       </div>
     </div>

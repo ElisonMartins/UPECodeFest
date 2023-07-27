@@ -29,9 +29,9 @@
 }
 
 .active p{
-    color: #dc0968 ;
+    color: #0ec0c1  ;
 }
 
 .active > svg {
-    fill: #dc0968;
+    fill: #0ec0c1 ;
 }

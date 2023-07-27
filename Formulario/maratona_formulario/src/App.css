@@ -33,7 +33,7 @@
     padding: 1.5rem;
     box-shadow: rgba(100, 100, 111, 0.2) 25px 20px 5px 0px;
     border-radius: 30px;
-    background-image: url("./assets/background.png");
+    background-image: url("./assets/bg.png");
     background-size: cover;
 }
 
@@ -91,11 +91,16 @@ label{
     gap: 0.5rem;
     align-items: center;
     border-radius: 3px;
-    background-color:#f2bcd0;
+    background-color:#0ec0c1;
     cursor: pointer;
     border: none;
     transition: 0.3s;
     border-radius: 10px;
+}
+
+.actions button span{
+  color: #210123;
+  font-weight: bold;
 }
 
 .actions button:hover{
