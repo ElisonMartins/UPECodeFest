@@ -13,8 +13,14 @@ import { useForm } from "./hooks/useForm";
 import { useState } from "react";
 //AxiosFunctions
 import { cadastrar } from "../src/componentes/ReviewForm";
+import { getTeamParticipantsCount } from "./componentes/ReviewForm";
+
+
+
 
 function App() {
+
+  
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalType, setModalType] = useState(null);
 
@@ -111,6 +117,20 @@ function App() {
                   <label>maratonaprogupe@gmail.com</label>.
                 </p>
               </div>
+            ) :modalType === "listaCheia" ? (
+              <div className="modalInfo">
+                <h2>Ops, ocorreu um erro!</h2>
+                <p>
+                Não foi possível realizar a sua inscrição na Maratona de Programação, pois essa equipe já está completa.
+                </p>
+                <p>
+                  Por favor, escolha outra equipe.
+                </p>
+                <p>
+                  Para mais informação, entre em contato com o comitê pelo e-mail:{" "}
+                  <label>maratonaprogupe@gmail.com</label>.
+                </p>
+              </div>
             ) : null}
           </Modal>
         ) : null}
@@ -140,10 +160,14 @@ function App() {
                 type="button"
                 onClick={async function () {
                   const userData = await cadastrar(data);
+                  const participantsCount = await getTeamParticipantsCount(data.equipeId);
                   if (userData != undefined) {
                     setIsModalVisible(true);
                     setModalType("success");
-                  } else {
+                  } else if(participantsCount===3) {
+                    setIsModalVisible(true);
+                    setModalType("listaCheia")
+                  }else{
                     console.log("Ocorreu um erro");
                     setIsModalVisible(true);
                     setModalType("error");

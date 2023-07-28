@@ -22,7 +22,6 @@ export const cadastrar = async (data, exibirModal) => {
     // Verificar se o grupo está cheio
     const participantsCount = await getTeamParticipantsCount(data.equipeId);
     if (participantsCount === 3) {
-      alert("Esse grupo já está cheio");
       return; // Sai da função se o grupo estiver cheio
     }
     // Cadastro de Participante
