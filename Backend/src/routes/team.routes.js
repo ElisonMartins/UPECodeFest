@@ -6,7 +6,7 @@ const teamRoutes = app =>{
     app.post("/team/create", create)
     //deletar time
     app.delete("/team/delete/:equipeId")
-    app.get("/team/get/:id", get)
+    app.get("/team/getall/:id", get)
     app.get("/team/get/length/:id", getTeamLength)
 }
 
