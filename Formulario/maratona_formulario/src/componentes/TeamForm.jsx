@@ -26,7 +26,6 @@ const TeamForm = ({
 
   const handleCheckboxChange = (e) => {
     setDesejaSeguirInscricaoSozinho(e.target.checked);
-    
     updateFieldHandler("checked", e.target.checked);
 
     // Se o checkbox foi marcado, envie true para handleTeamChange e false para updateFieldHandler
