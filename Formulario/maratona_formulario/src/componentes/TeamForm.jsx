@@ -18,6 +18,14 @@ const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
     { id: 10, name: "ProgSprint" },
   ];
 
+  // Estado local para controlar o valor do checkbox
+  const [desejaSeguirInscricaoSozinho, setDesejaSeguirInscricaoSozinho] = useState(false);
+
+  // Função para atualizar o estado do checkbox quando o valor do checkbox mudar
+  const handleCheckboxChange = (e) => {
+    setDesejaSeguirInscricaoSozinho(e.target.checked);
+  };
+
   const [participantsCount, setParticipantsCount] = useState(null);
   const [participants, setParticipants] = useState([]);
 
@@ -87,6 +95,7 @@ const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
             handleTeamChange(name, id); 
             updateFieldHandler("nomeTeam", name); 
           }}
+          disabled={desejaSeguirInscricaoSozinho}
         >
           <option className="option-select" value="" disabled>
             <label htmlFor="">Escolha uma equipe</label>
@@ -98,12 +107,17 @@ const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
           ))}
         </select>
         <div className="check">
-          <input id="checkbox" type="checkbox"></input>
+          <input id="checkbox" type="checkbox" 
+          checked={desejaSeguirInscricaoSozinho }
+          onChange={handleCheckboxChange}
+          value={data.booleano || ""}
+          
+          ></input>
           <label className="seguirInscricao" htmlFor="checkbox">Desejo seguir a inscrição sem equipe</label>
         </div>
       </div>
       <div className="review-group">
-        {data.nomeTeam ? (
+        {data.nomeTeam && !desejaSeguirInscricaoSozinho ? (
           <>
             <p>Essa equipe possui {3 - participantsCount} vaga(s):</p>
             <ul>
@@ -114,7 +128,13 @@ const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
           </>
         ) : (
           <p></p>
-        )}
+        )} {desejaSeguirInscricaoSozinho ? (
+          <>
+            <p>Ao Prosseguir, você concorda que o comitê poderá alocar você para um grupo.</p>
+          </>
+        ) : (
+          <p></p>
+        )} 
       </div>
     </div>
   );
