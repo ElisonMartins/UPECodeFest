@@ -32,6 +32,9 @@ const TeamForm = ({
     // Se o checkbox foi marcado, envie true para handleTeamChange e false para updateFieldHandler
     if (e.target.checked) {
       handleTeamChange("undefined", 0);
+    }else{
+      handleTeamChange(teamNames.name, teamNames.id);
+      updateFieldHandler("nomeTeam", teamNames.name)
     }
   };
 
@@ -66,7 +69,7 @@ const TeamForm = ({
       fetchParticipantsCount();
       fetchParticipants();
     }
-  }, [data.equipeId]);
+  }, [data.checked, data.equipeId]);
 
   const getTeamParticipantsCount = async (equipeId) => {
     try {
