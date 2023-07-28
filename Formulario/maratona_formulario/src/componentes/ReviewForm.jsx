@@ -2,21 +2,22 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import axios from "axios";
+import { useState } from 'react';
 
 // Função para obter a quantidade de participantes em uma equipe
-const getTeamParticipantsCount = async (equipeId) => {
+ export const getTeamParticipantsCount = async (equipeId) => {
   try {
     const response = await axios.get(`http://localhost:3001/team/get/length/${equipeId}`);
     return response.data.numberOfUsers;
   } catch (error) {
     throw new Error("Erro ao obter a quantidade de participantes da equipe.");
   }
-};
+}; 
 
 
 // Função cadastrar que utiliza a função getTeamParticipantsCount
-export const cadastrar = async (data) => {
-  try {
+export const cadastrar = async (data, exibirModal) => {
+   try {
     // Verificar se o grupo está cheio
     const participantsCount = await getTeamParticipantsCount(data.equipeId);
     if (participantsCount === 3) {
@@ -37,17 +38,11 @@ export const cadastrar = async (data) => {
 
     console.log("Usuário cadastrado com sucesso:", cadastrarUsuario.data);
 
-    alert(
-      "Sua participação foi cadastrada com sucesso. Em alguns instantes você receberá um email de confirmação."
-    );
-
-    window.location.reload();
-
     return cadastrarUsuario.data;
   } catch (error) {
     console.log(error);
 
-  }
+  } 
 };
 
 

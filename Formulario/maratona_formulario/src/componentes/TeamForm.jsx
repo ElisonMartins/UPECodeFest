@@ -1,8 +1,10 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from "react";
+/* eslint-disable react/prop-types */
 
-const TeamForm = ({data,updateFieldHandler, handleTeamChange}) => {
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
   const teamNames = [
     { id: 1, name: "CodeSprinters" },
     { id: 2, name: "BitBusters" },
@@ -15,7 +17,60 @@ const TeamForm = ({data,updateFieldHandler, handleTeamChange}) => {
     { id: 9, name: "BitMavericks" },
     { id: 10, name: "ProgSprint" },
   ];
-// getTeamLength().then((info)=>{alert(`Até agora essa equipe possui ${info.numberOfUsers} participantes`)})
+
+  const [participantsCount, setParticipantsCount] = useState(null);
+  const [participants, setParticipants] = useState([]);
+
+  useEffect(() => {
+    //Buscar quantidade de participantes
+    const fetchParticipantsCount = async () => {
+      try {
+        const count = await getTeamParticipantsCount(data.equipeId);
+        setParticipantsCount(count);
+      } catch (error) {
+        console.error(error.message);
+        setParticipantsCount("Erro ao obter a quantidade de participantes.");
+      }
+    };
+
+    //Buscar os usuários da equipe
+    const fetchParticipants = async () => {
+      try {
+        const participantsData = await getTeamParticipants(data.equipeId);
+        setParticipants(participantsData.usuarios);
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+
+    if (data.equipeId) {
+      fetchParticipantsCount();
+      fetchParticipants();
+    }
+  }, [data.equipeId]);
+
+  //Função de bsucar quantidade de participantes por equipe
+  const getTeamParticipantsCount = async (equipeId) => {
+    try {
+      const response = await axios.get(`http://localhost:3001/team/get/length/${equipeId}`);
+      return response.data.numberOfUsers;
+    } catch (error) {
+      throw new Error("Erro ao obter a quantidade de participantes da equipe.");
+    }
+  };
+
+  //Função de bsucar os participantes da equipe
+  const getTeamParticipants = async (equipeId) => {
+    try {
+      const response = await axios.get(`http://localhost:3001/team/getall/${equipeId}`);
+      return response.data
+    } catch (error) {
+      throw new Error("Erro ao obter a quantidade de participantes da equipe.");
+    }
+  };
+
+
+
   return (
     <div>
       <div className="form_control">
@@ -42,9 +97,24 @@ const TeamForm = ({data,updateFieldHandler, handleTeamChange}) => {
             </option>
           ))}
         </select>
+        <div className="check">
+          <input id="checkbox" type="checkbox"></input>
+          <label className="seguirInscricao" htmlFor="checkbox">Desejo seguir a inscrição sem equipe</label>
+        </div>
       </div>
       <div className="review-group">
-       
+        {data.nomeTeam ? (
+          <>
+            <p>Essa equipe possui {3 - participantsCount} vaga(s):</p>
+            <ul>
+              {participants.map((participant, index) => (
+              <p key={index}>{` ${index+1+"º"} ${participant.nome}`}.</p>
+              ))}
+           </ul>
+          </>
+        ) : (
+          <p></p>
+        )}
       </div>
     </div>
   );

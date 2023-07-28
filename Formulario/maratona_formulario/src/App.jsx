@@ -7,6 +7,7 @@ import TeamForm from './componentes/TeamForm';
 import UserForm from './componentes/UserForm';
 import ReviewForm from './componentes/ReviewForm';
 import Steps from './componentes/Steps';
+import Modal from './componentes/Modal';
 //HOOKS 
 import { useForm } from './hooks/useForm';
 import { useState } from 'react';
@@ -15,6 +16,9 @@ import{cadastrar} from '../src/componentes/ReviewForm'
 
 
 function App() {
+
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [modalType, setModalType] = useState(null)
 
   const formTemplate = {
     nome: "",
@@ -71,7 +75,26 @@ function App() {
       <div className='app'>
         <div className='header'>
           <h2>Formulário de Inscrição</h2>
-          <p>Maratona de Programação - 2023</p>
+          <p className='typeMaraton'>Maratona de Programação - 2023</p>
+          {isModalVisible ? (
+            <Modal onClose={() => setIsModalVisible(false)}>
+            {modalType === "success" ? ( 
+              <div className='modalInfo'>
+                <h2>Olá, <label>{data.nome}.</label></h2>
+                <p>Sua inscrição na Maratona de Programação 2023 foi realizada com sucesso.</p>
+                <p>Em alguns instantes, você receberá um e-mail de confirmação no endereço: <label>{data.email}</label>.</p>
+                <p>Qualquer dúvida ou retificação, entre em contato com o comitê pelo e-mail: <label>maratonaprogupe@gmail.com</label>.</p>
+              </div>
+            ) : modalType === "error" ? (
+              <div className='modalInfo'>
+                <h2>Ops, ocorreu um erro!</h2>
+                <p>Não foi possível realizar a inscrição na Maratona de Programação.</p>
+                <p>Caso você tenha inserido um e-mail ou CPF duplicado, sua inscrição não poderá ser deferida.</p>
+                <p>Caso o erro não seja esse, por favor, tente novamente mais tarde ou entre em contato com o comitê pelo e-mail: <label>maratonaprogupe@gmail.com</label>.</p>
+              </div>
+            ) : null}
+          </Modal>
+          ) : null}
         </div>
         <div className="form_container">
 
@@ -91,7 +114,18 @@ function App() {
                 <GrFormNext/>
               </button>
             ) : (
-              <button type='button' onClick={()=> cadastrar(data, dataTeam)}>
+              <button type='button' onClick={async function () {
+                  const userData = await cadastrar(data)
+                  if(userData !=undefined){
+                    setIsModalVisible(true)
+                    setModalType("success")
+                  } else{
+                    console.log("Ocorreu um erro")
+                  setIsModalVisible(true)
+                  setModalType("error")
+                  }
+                
+              }}>
               <span>Confirmar</span>
               <FiSend/>
             </button>

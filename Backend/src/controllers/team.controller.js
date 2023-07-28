@@ -28,7 +28,7 @@ export const get = async(req, res) =>{
 }
 
 
-//Buscae quantidade de participantes em um time 
+//Buscar quantidade de participantes em um time 
 
 export const getTeamLength = async(req,res) =>{
     try {
