@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
+const TeamForm = ({
+  data,
+  updateFieldHandler,
+  handleTeamChange,
+}) => {
   const teamNames = [
     { id: 1, name: "CodeSprinters" },
     { id: 2, name: "BitBusters" },
@@ -18,18 +21,25 @@ const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
     { id: 10, name: "ProgSprint" },
   ];
 
-  // Estado local para controlar o valor do checkbox
-  const [desejaSeguirInscricaoSozinho, setDesejaSeguirInscricaoSozinho] = useState(false);
+  const [desejaSeguirInscricaoSozinho, setDesejaSeguirInscricaoSozinho] =
+    useState(false);
 
-  // Função para atualizar o estado do checkbox quando o valor do checkbox mudar
   const handleCheckboxChange = (e) => {
     setDesejaSeguirInscricaoSozinho(e.target.checked);
+    
+    updateFieldHandler("checked", e.target.checked);
+
+    // Se o checkbox foi marcado, envie true para handleTeamChange e false para updateFieldHandler
+    if (e.target.checked) {
+      handleTeamChange("undefined", 0);
+    }
   };
 
   const [participantsCount, setParticipantsCount] = useState(null);
   const [participants, setParticipants] = useState([]);
 
   useEffect(() => {
+    setDesejaSeguirInscricaoSozinho(data.checked);
     //Buscar quantidade de participantes
     const fetchParticipantsCount = async () => {
       try {
@@ -43,6 +53,7 @@ const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
 
     //Buscar os usuários da equipe
     const fetchParticipants = async () => {
+      
       try {
         const participantsData = await getTeamParticipants(data.equipeId);
         setParticipants(participantsData.usuarios);
@@ -57,33 +68,36 @@ const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
     }
   }, [data.equipeId]);
 
-  //Função de bsucar quantidade de participantes por equipe
   const getTeamParticipantsCount = async (equipeId) => {
     try {
-      const response = await axios.get(`http://localhost:3001/team/get/length/${equipeId}`);
+      const response = await axios.get(
+        `http://localhost:3001/team/get/length/${equipeId}`
+      );
       return response.data.numberOfUsers;
     } catch (error) {
       throw new Error("Erro ao obter a quantidade de participantes da equipe.");
     }
   };
 
-  //Função de bsucar os participantes da equipe
   const getTeamParticipants = async (equipeId) => {
     try {
-      const response = await axios.get(`http://localhost:3001/team/getall/${equipeId}`);
-      return response.data
+      const response = await axios.get(
+        `http://localhost:3001/team/getall/${equipeId}`
+      );
+      return response.data;
     } catch (error) {
       throw new Error("Erro ao obter a quantidade de participantes da equipe.");
     }
   };
 
-
-
   return (
     <div>
       <div className="form_control">
-        <label className="teamName" htmlFor="nomeTeam">Equipe:</label>
-        <select className="select_groupe"
+        <label className="teamName" htmlFor="nomeTeam">
+          Equipe:
+        </label>
+        <select
+          className="select_groupe"
           name="nomeTeam"
           id="team"
           required
@@ -91,9 +105,9 @@ const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
           onChange={(e) => {
             const name = e.target.value;
             const selectedTeam = teamNames.find((team) => team.name === name);
-            const id = selectedTeam ? selectedTeam.id : null; 
-            handleTeamChange(name, id); 
-            updateFieldHandler("nomeTeam", name); 
+            const id = selectedTeam ? selectedTeam.id : null;
+            handleTeamChange(name, id);
+            updateFieldHandler("nomeTeam", name);
           }}
           disabled={desejaSeguirInscricaoSozinho}
         >
@@ -107,13 +121,15 @@ const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
           ))}
         </select>
         <div className="check">
-          <input id="checkbox" type="checkbox" 
-          checked={desejaSeguirInscricaoSozinho }
-          onChange={handleCheckboxChange}
-          value={data.booleano || ""}
-          
-          ></input>
-          <label className="seguirInscricao" htmlFor="checkbox">Desejo seguir a inscrição sem equipe</label>
+          <input
+            id="checkbox"
+            type="checkbox"
+            checked={desejaSeguirInscricaoSozinho}
+            onChange={handleCheckboxChange}
+          />
+          <label className="seguirInscricao" htmlFor="checkbox">
+            Desejo seguir a inscrição sem equipe
+          </label>
         </div>
       </div>
       <div className="review-group">
@@ -122,19 +138,23 @@ const TeamForm = ({ data, updateFieldHandler, handleTeamChange }) => {
             <p>Essa equipe possui {3 - participantsCount} vaga(s):</p>
             <ul>
               {participants.map((participant, index) => (
-              <p key={index}>{` ${index+1+"º"} ${participant.nome}`}.</p>
+                <p key={index}>{` ${index + 1 + "º"} ${participant.nome}`}.</p>
               ))}
-           </ul>
+            </ul>
           </>
         ) : (
           <p></p>
-        )} {desejaSeguirInscricaoSozinho ? (
+        )}{" "}
+        {desejaSeguirInscricaoSozinho ? (
           <>
-            <p>Ao Prosseguir, você concorda que o comitê poderá alocar você para um grupo.</p>
+            <p>
+              Ao Prosseguir, você concorda que o comitê poderá alocar você para
+              um grupo.
+            </p>
           </>
         ) : (
           <p></p>
-        )} 
+        )}
       </div>
     </div>
   );
