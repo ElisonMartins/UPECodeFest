@@ -12,7 +12,7 @@ const imageBytes = fs.readFileSync(imageRelativePath);
 // Conversão para base64
 const base64Image = imageBytes.toString('base64');
 
-const html = function(nome, cpf, email, cursoFaculdade, periodoFaculdade, faculdadeNome, nomeEquipe, dataCriacao, id ){
+const html = function(nome, cpf, email, cursoFaculdade, periodoFaculdade, faculdadeNome ){
     return `
     <!DOCTYPE html>
     <html>
@@ -70,17 +70,6 @@ const html = function(nome, cpf, email, cursoFaculdade, periodoFaculdade, faculd
                 <label style="color: #910142;">${faculdadeNome}</label>
             </div>
     
-            <div style="border: 1px solid #0ec0c1; padding: 10px; margin: 10px;">
-                <h2 style="text-align: center;font-size: 16px;margin-bottom: 25px; color: #6c043c;">DADOS DA EQUIPE</h2>
-                <label style="color: #910142;font-weight: bold;" for="nome_equipe">Nome da Equipe:</label>
-                <label style="color: #910142;">${nomeEquipe}</label>
-                <br>
-                <label style="color: #910142;font-weight: bold;" for="data_criacao_equipe">Data de Criação da Equipe:</label>
-                <label style="color: #910142;">${dataCriacao}</label>
-                <br>
-                <label style="color: #910142;font-weight: bold;" for="id_equipe">ID da Equipe:</label>
-                <label style="color: #910142;">${id}</label>
-            </div>
     
             <div style="border: 1px solid #0ec0c1; padding: 10px; margin: 10px;">
                 <h2 style="text-align: center;font-size: 16px;margin-bottom: 25px; color: #6c043c;">INFORMAÇÕES SOBRE A MARATONA</h2>

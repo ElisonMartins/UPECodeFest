@@ -7,11 +7,11 @@ const options = {
     orientation: 'portrait',
 };
 
-const pdfTransporter = function (nome, cpf, email, cursoFaculdade, periodoFaculdade, faculdadeNome, nomeEquipe, dataCriacao, id ) {
+const pdfTransporter = function (nome, cpf, email, cursoFaculdade, periodoFaculdade, faculdadeNome) {
     return new Promise((resolve, reject) => {
       const pdfPath = `confirmacao_de_inscrição_${email}.pdf`; 
   
-      pdf.create(html(nome, cpf, email, cursoFaculdade, periodoFaculdade, faculdadeNome, nomeEquipe, dataCriacao, id ), options).toFile(pdfPath, function (err, res) {
+      pdf.create(html(nome, cpf, email, cursoFaculdade, periodoFaculdade, faculdadeNome), options).toFile(pdfPath, function (err, res) {
         if (err) {
           console.error(`Erro ao criar o PDF: ${err}`);
           reject(err);
