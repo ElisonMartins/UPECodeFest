@@ -1,4 +1,6 @@
 /* eslint-disable react/jsx-key */
+
+import { SyncLoader } from "react-spinners";
 //Components
 import "./App.css";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
@@ -20,7 +22,9 @@ import { getTeamParticipantsCount } from "./componentes/ReviewForm";
 
 function App() {
 
-  
+  const [isLoading, setIsLoading] = useState(false);
+
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalType, setModalType] = useState(null);
 
@@ -78,8 +82,18 @@ function App() {
   return (
     <div className="app">
       <div className="header">
+         {isLoading ? (
+        <div className="loader-container">
+          <SyncLoader color={"#210123"} loading={true} />
+          <p style={{ marginTop: "2px" }}>Validando</p>
+        </div>
+      ):(
+        <>
         <h2>Formulário de Inscrição</h2>
         <p className="typeMaraton">Maratona de Programação - 2023</p>
+        </>
+      )
+      }
         {isModalVisible ? (
           <Modal onClose={() => setIsModalVisible(false)}>
             {modalType === "success" ? (
@@ -134,6 +148,7 @@ function App() {
             ) : null}
           </Modal>
         ) : null}
+        
       </div>
       <div className="form_container">
         <Steps currentStep={currentStep} />
@@ -159,8 +174,12 @@ function App() {
               <button
                 type="button"
                 onClick={async function () {
+                  setIsLoading(true)
                   const userData = await cadastrar(data);
                   const participantsCount = await getTeamParticipantsCount(data.equipeId);
+
+                  setIsLoading(false)
+
                   if (userData != undefined) {
                     setIsModalVisible(true);
                     setModalType("success");

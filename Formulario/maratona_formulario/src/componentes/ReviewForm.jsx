@@ -4,6 +4,20 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 
+//Função de buscar rota para o envio de e-mails
+
+export const sendEmail = async (cpf) => {
+  try {
+    const response = await axios.get(
+      `http://localhost:3001/emails/${cpf}`
+    );
+    return response
+  } catch (error) {
+    throw new Error("Erro ao enviar o email");
+  }
+};
+
+
 // Função para obter a quantidade de participantes em uma equipe
 export const getTeamParticipantsCount = async (equipeId) => {
   try {
@@ -18,6 +32,9 @@ export const getTeamParticipantsCount = async (equipeId) => {
 
 // Função cadastrar que utiliza a função getTeamParticipantsCount
 export const cadastrar = async (data, exibirModal) => {
+
+  //Algo para idicar que esta validadno os dados aqui...
+
   try {
     // Verificar se o grupo está cheio
     const participantsCount = await getTeamParticipantsCount(data.equipeId);
@@ -38,14 +55,17 @@ export const cadastrar = async (data, exibirModal) => {
         periodoFaculdade: data.periodo,
       }
     );
-
     console.log("Usuário cadastrado com sucesso:", cadastrarUsuario.data);
 
+    await sendEmail(data.cpf)
+    
+    console.log("Email enviado:");
     return cadastrarUsuario.data;
   } catch (error) {
     console.log(error);
   }
 };
+
 
 const ReviewForm = ({ data }) => {
   return (
