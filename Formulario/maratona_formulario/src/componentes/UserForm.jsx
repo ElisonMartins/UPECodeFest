@@ -24,7 +24,7 @@ const UserForm = ({ data, updateFieldHandler }) => {
           type="text"
           name="text"
           id="email"
-          placeholder="Email do participante"
+          placeholder="Seu Email"
           required
           value={data.email || ""}
           onChange={(e) => updateFieldHandler("email", e.target.value)}
@@ -42,7 +42,7 @@ const UserForm = ({ data, updateFieldHandler }) => {
           type="text"
           name="text"
           id="celular"
-          placeholder="Celular do participante"
+          placeholder="Seu Celular"
           required
           value={data.celular || ""}
           onChange={(e) => updateFieldHandler("celular", e.target.value)}
@@ -54,7 +54,7 @@ const UserForm = ({ data, updateFieldHandler }) => {
           type="text"
           name="text"
           id="faculdade"
-          placeholder="Faculdade do participante"
+          placeholder="Sua Faculdade"
           required
           value={data.faculdade || ""}
           onChange={(e) => updateFieldHandler("faculdade", e.target.value)}
@@ -66,7 +66,7 @@ const UserForm = ({ data, updateFieldHandler }) => {
           type="text"
           name="text"
           id="curso"
-          placeholder="Curso do participante"
+          placeholder="Seu Curso"
           required
           value={data.curso || ""}
           onChange={(e) => updateFieldHandler("curso", e.target.value)}
@@ -78,10 +78,10 @@ const UserForm = ({ data, updateFieldHandler }) => {
           type="text"
           name="text"
           id="periodo"
-          placeholder="Período do participante"
+          placeholder="Seu Período"
           required
           value={data.periodo || ""}
-          onChange={(e) => updateFieldHandler("periodo", e.target.value)}
+          onChange={(e) => updateFieldHandler("periodo", Number(e.target.value))}
         />
       </div>
     </div>

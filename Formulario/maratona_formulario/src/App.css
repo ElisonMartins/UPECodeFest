@@ -7,6 +7,11 @@
 .header{
     text-align: center;
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .header h2{
@@ -18,6 +23,26 @@
 .header p{
     color: #210123;
     font-size: 1.2rem;
+}
+
+.app .header .typeMaraton{
+  border-right: 4px solid;
+  width: 26ch;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(26), bliking 0.5s infinite step-end alternate;
+}
+
+@keyframes typing {
+  from{
+    width: 0;
+  }
+}
+
+@keyframes bliking{
+  50%{
+    border-color: transparent;
+  }
 }
 
 .teamName{
@@ -33,25 +58,32 @@
     padding: 1.5rem;
     box-shadow: rgba(100, 100, 111, 0.2) 25px 20px 5px 0px;
     border-radius: 30px;
-    background-image: url("./assets/background.png");
+    background-image: url("./assets/bg.png");
     background-size: cover;
 }
 
 .form_control input{
     background-color:#963156;
     color: #f2bcd0;
-    border: 2px solid #e3fafabd;
+    border: 1px solid #e3fafabd;
     padding: 0.6rem;
     border-radius: 10px;
+    justify-content: left;
 }
 
 .form_control label{
     color: #f2bcd0;
 }
 
+.form_control .seguirInscricao{
+  margin-left: 5px;
+}
+
+
 .form_control input::placeholder {
     color: #f2bcd0;
 }
+
 
 .form_container form{
     max-width: 400px;
@@ -69,18 +101,18 @@
     margin-bottom: 2rem;
 }
 
+.form_control .check{
+  padding-left: 10px;
+}
+
+
+
 label{
     font-weight: bold;
     color: #777;
     font-size: 0.9rem;
 }
 
-input{
-    padding: 0.6rem;
-    border: none;
-    border-radius: 3px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0;
-}
 
 /*Ações*/
 
@@ -97,11 +129,16 @@ input{
     gap: 0.5rem;
     align-items: center;
     border-radius: 3px;
-    background-color:#f2bcd0;
+    background-color:#0ec0c1;
     cursor: pointer;
     border: none;
     transition: 0.3s;
     border-radius: 10px;
+}
+
+.actions button span{
+  color: #210123;
+  font-weight: bold;
 }
 
 .actions button:hover{
@@ -139,13 +176,22 @@ input{
     letter-spacing: 1.2px;
   }
 
-  textarea{
+
+  .review-group{
+    height: 130px;
     background-color:#963156;
     color: #f2bcd0;
-    border: 2px solid #e3fafabd;
+    border: 1px solid #e3fafabd;
     padding: 0.6rem;
     border-radius: 10px;
   }
+  .review-group ul p{
+    margin-top: 10px;
+  }
+  .review-group p {
+    font-weight: bold;
+  }
+
 
   textarea::placeholder {
     color: #f2bcd0;
@@ -154,7 +200,16 @@ input{
   .review_form{
     max-width: 400px;
     margin: 0 auto;
+    background-color:#963156;
+    padding: 0.8rem;
+    border: 1px solid #e3fafabd;
+    border-radius: 10px;
   }
+
+  .review_form label, .review_form h2{
+    color: #f2bcd0;
+  }
+
   
   h2 {
     margin-bottom: 10px;
@@ -163,3 +218,87 @@ input{
   p {
     margin-bottom: 5px;
   }
+
+  /*Modal Area*/
+  .modal{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    background-color: rgba(33, 1, 35, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+
+    .modalContainer{
+      color: #000;
+      background-color: #e2d1f0;
+      width: 32%;
+      height: 35%;
+      border-radius: 10px;
+
+      .modalClose{
+        border: none;
+        background-color: transparent;
+        outline: none;
+        width: 32px;
+        height: 32px;
+        right: calc(-100% + 35px);
+        top: 10px;
+        display: flex;
+        position: relative;
+        align-items: center;
+
+        &:before,
+        &:after{
+          content: ' ';
+          position: absolute;
+          width: 2.5px;
+          height: 24px;
+          background-color: #963156;
+          cursor: pointer;
+        }
+        &:before{
+          transform: rotate(45deg);
+        }
+        &:after{
+          transform: rotate(-45deg);
+        }
+      }
+
+    }
+
+  }
+
+  .modalInfo {
+    text-align: center;
+    padding: 30px;
+
+  }
+
+ .modalInfo h2{
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-align: left;
+ }
+
+ .modalInfo label {
+  font-weight: bold;
+  color: #007bff; 
+  font-size: 16px;
+}
+
+.modalInfo  p {
+  margin: 5px 0;
+  font-size: 18px;
+  text-align: left;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+  
+
+
