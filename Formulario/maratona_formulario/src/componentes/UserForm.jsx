@@ -38,7 +38,9 @@ const UserForm = ({ data, updateFieldHandler }) => {
       </div>
       <div className="form_control">
         <label htmlFor="celular">Celular:</label>
-        <input
+        <InputMask
+          mask="(99) 9 9999-9999"
+          placeholder="Seu Celular"
           type="text"
           name="text"
           id="celular"
