@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
+import InputMask from 'react-input-mask';
 
 const UserForm = ({ data, updateFieldHandler }) => {
   return (
@@ -28,14 +29,15 @@ const UserForm = ({ data, updateFieldHandler }) => {
           value={data.email || ""}
           onChange={(e) => updateFieldHandler("email", e.target.value)}
         />
-      </div>
+      </div> 
       <div className="form_control">
         <label htmlFor="cpf">CPF:</label>
-        <input
+        <InputMask
+          mask="999.999.999-99"
+          placeholder="Digite o CPF"
           type="text"
           name="text"
           id="cpf"
-          placeholder="Seu CPF"
           required
           value={data.cpf || ""}
           onChange={(e) => updateFieldHandler("cpf", e.target.value)}
@@ -43,11 +45,12 @@ const UserForm = ({ data, updateFieldHandler }) => {
       </div>
       <div className="form_control">
         <label htmlFor="celular">Celular:</label>
-        <input
+        <InputMask
+          mask="(99) 9 9999-9999"
+          placeholder="Seu Celular"
           type="text"
           name="text"
           id="celular"
-          placeholder="Seu Celular"
           required
           value={data.celular || ""}
           onChange={(e) => updateFieldHandler("celular", e.target.value)}
