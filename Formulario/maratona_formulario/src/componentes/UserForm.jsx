@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
+import CpfInput from "./CpfInput"
 
 const UserForm = ({ data, updateFieldHandler }) => {
   return (
@@ -28,17 +29,11 @@ const UserForm = ({ data, updateFieldHandler }) => {
           value={data.email || ""}
           onChange={(e) => updateFieldHandler("email", e.target.value)}
         />
-      </div>
+      </div> 
       <div className="form_control">
         <label htmlFor="cpf">CPF:</label>
-        <input
-          type="text"
-          name="text"
-          id="cpf"
-          placeholder="CPF do participante"
-          required
-          value={data.cpf || ""}
-          onChange={(e) => updateFieldHandler("cpf", e.target.value)}
+        <CpfInput 
+        required
         />
       </div>
       <div className="form_control">
