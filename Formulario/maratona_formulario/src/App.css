@@ -299,6 +299,62 @@ label{
   font-size: 16px;
 }
 
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .form_container {
+    padding: 1rem;
+    border-radius: 10px;
+    background-image: url("./assets/background.png");
+  }
+  .select_groupe {
+    background-position: 90% center;
+  }
+  .modalContainer {
+    width: 80%;
+    height: 50%;
+  }
+.review_form h2 {
+    color: #f2bcd0;
+    font-size: 20px;
+}
+.app{
+  padding:0.5rem ;
+}
+
+.header h2 {
+  font-size: 1.5rem;
+}
+
+.header p {
+  font-size: 1em;
+}
+
+.actions button {
+  margin-bottom: 20px;
+}
+
+.header {
+  margin-top: 2rem;
+
+}
+ 
+}
+
+@media screen and (max-width: 315px) {
+  .form_control .seguirInscricao {
+    margin-left: 5px;
+    font-size: 13px;
+}
+
+.review_form h2 {
+  color: #f2bcd0;
+  font-size: 17px;
+}
+
+.review_form p, label {
+  font-size: 14px;
+}
+}
   
 
 

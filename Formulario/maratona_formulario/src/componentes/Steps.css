@@ -35,3 +35,20 @@
 .active > svg {
     fill: #0ec0c1 ;
 }
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .steps{
+        gap: 0;
+        
+    }
+    .step{
+        width: 100px;
+    }
+
+    .step p {
+        font-size: 13px;
+    }
+    
+   
+  }

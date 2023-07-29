@@ -85,7 +85,8 @@ function App() {
          {isLoading ? (
         <div className="loader-container">
           <SyncLoader color={"#210123"} loading={true} />
-          <p style={{ marginTop: "2px" }}>Validando</p>
+          <br />
+          <p>Validando</p>
         </div>
       ):(
         <>
@@ -160,7 +161,15 @@ function App() {
           <div className="inputs_container">{currentComponent}</div>
           <div className="actions">
             {!isFirstStep && (
-              <button type="button" onClick={() => changeStep(currentStep - 1)}>
+              <button
+               disabled={isLoading} 
+               type="button" onClick={() => changeStep(currentStep - 1)}
+               style={{
+                  backgroundColor: isLoading ? "#78a5a6" : "#0ec0c1", 
+                  cursor: isLoading ? "not-allowed" : "pointer", 
+                }}
+               
+               >
                 <GrFormPrevious />
                 <span>Voltar</span>
               </button>
@@ -177,7 +186,7 @@ function App() {
                   setIsLoading(true)
                   const userData = await cadastrar(data);
                   const participantsCount = await getTeamParticipantsCount(data.equipeId);
-
+                  
                   setIsLoading(false)
 
                   if (userData != undefined) {
@@ -191,6 +200,11 @@ function App() {
                     setIsModalVisible(true);
                     setModalType("error");
                   }
+                }}
+                disabled={isLoading}
+                style={{
+                  backgroundColor: isLoading ? "#78a5a6" : "#0ec0c1", 
+                  cursor: isLoading ? "not-allowed" : "pointer", 
                 }}
               >
                 <span>Confirmar</span>

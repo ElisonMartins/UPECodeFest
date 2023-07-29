@@ -93,7 +93,7 @@ const ReviewForm = ({ data }) => {
       {data.nomeTeam != "undefined" ? (
         <>
           <p>
-            <label>Nome da Equipe Escolhida:</label> {data.nomeTeam}
+            <label>Nome da Equipe:</label> {data.nomeTeam}
           </p>
 
           <p>
@@ -103,7 +103,7 @@ const ReviewForm = ({ data }) => {
       ) : (
         <>
           <p>
-            <label>Nome da Equipe Escolhida:</label> Participante sem equipe
+            <label>Nome da Equipe:</label> Participante sem equipe.
           </p>
         </>
       )}
