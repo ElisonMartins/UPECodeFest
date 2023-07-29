@@ -1,7 +1,7 @@
-import {sendEmailsByEquipeId} from "../controllers/sendEmail.controller"
+import {sendEmailParticipante} from "../controllers/sendEmail.controller"
 
 const emails = app =>{
-    app.get('/emails/:equipeId',sendEmailsByEquipeId);
+    app.get('/emails/:cpf',sendEmailParticipante);
 }
 
 export default emails

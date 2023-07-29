@@ -43,29 +43,14 @@ const sendEmail = async (to, subject, text, pdfPath) => {
   }
 };
 
-exports.sendEmailsByEquipeId = async (req, res) => {
-  const equipeId = Number(req.params.equipeId);
+exports.sendEmailParticipante = async (req, res) => {
+  const cpf = req.params.cpf;
 
-  //Verificar se existe uma equipe com Id fornecido
+  // Verificar se existe um usuário com o cpf fornecido
   try {
-    const equipe = await prisma.equipe.findUnique({
+    const user = await prisma.usuario.findUnique({
       where: {
-        id: equipeId,
-      },
-      select: {
-        nomeEquipe: true,
-        dataCriacao: true,
-        id: true,
-      }
-    });
-
-    if (!equipe) {
-      return res.status(404).send('Equipe não encontrada');
-    }
-
-    const userInfo = await prisma.usuario.findMany({
-      where: {
-        equipeId: equipeId
+        cpf: cpf,
       },
       select: {
         nome: true,
@@ -74,38 +59,25 @@ exports.sendEmailsByEquipeId = async (req, res) => {
         cursoFaculdade: true,
         periodoFaculdade: true,
         faculdadeNome: true,
-      }
+      },
     });
 
-    //Mesmo que exista uma equipe, porém nenhum email esteja associado, retornar um erro.
-    if (userInfo.length === 0) {
-      return res.status(404).send('Nenhum Email encontrado nessa equipe');
+    if (!user) {
+      return res.status(404).send('Usuário não encontrado');
     }
 
-    try {
-      // Enviar emails para cada usuário da equipe com PDFs personalizados
-      const { nomeEquipe, dataCriacao, id } = equipe;
-      for (const user of userInfo) {
-        
-        const formattedDataCriacao = format(dataCriacao, "dd/MM/yyyy - HH:mm:ss");
-
-        const { nome, cpf, email, cursoFaculdade, periodoFaculdade, faculdadeNome } = user;
-        const pdfPath = await pdfTransporter(nome, cpf, email, cursoFaculdade, periodoFaculdade, faculdadeNome, nomeEquipe, formattedDataCriacao, id); // Gera o PDF personalizado
-        const caminhoDoPdf = `./confirmacao_de_inscrição_${email}.pdf`; // Caminho do PDF gerado na mesma pasta que pdfTransporter
-        await sendEmail(email, 'Confirmação de participação', emailTemplate(nome), caminhoDoPdf);
-        await fs.unlink(pdfPath); // Exclui o arquivo PDF após o envio do email
-        console.log(`PDF ${pdfPath} excluído após o envio do email.`);
-      }
+    const { nome, email, cursoFaculdade, periodoFaculdade, faculdadeNome } = user;
+    const pdfPath = await pdfTransporter(nome, cpf, email, cursoFaculdade, periodoFaculdade, faculdadeNome); // Gera o PDF personalizado
+    const caminhoDoPdf = `./confirmacao_de_inscrição_${email}.pdf`; // Caminho do PDF gerado na mesma pasta que pdfTransporter
+    await sendEmail(email, 'Confirmação de participação', emailTemplate(nome), caminhoDoPdf);
+    await fs.unlink(pdfPath); // Exclui o arquivo PDF após o envio do email
+    console.log(`PDF ${pdfPath} excluído após o envio do email.`);
       
-      await prisma.$disconnect(); // Fechar a conexão com o Prisma após o uso
+    await prisma.$disconnect(); // Fechar a conexão com o Prisma após o uso
 
-      res.status(200).send('Emails enviados com sucesso!');
-    } catch (error) {
-      console.error(`Erro ao enviar o Email: ${error}`);
-      res.status(500).send('Erro ao enviar os emails');
-    }
+    res.status(200).send('Email enviado com sucesso!');
   } catch (error) {
-    console.error(`Erro ao buscar a equipe: ${error}`);
-    res.status(500).send('Erro ao buscar a equipe');
+    console.error(`Erro ao enviar o Email: ${error}`);
+    res.status(500).send('Erro ao enviar o email');
   }
 };
