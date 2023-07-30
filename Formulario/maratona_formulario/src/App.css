@@ -301,6 +301,10 @@ label{
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
+
+  .modal .modalContainer {
+    width: 80%;
+}
   .form_container {
     padding: 1rem;
     border-radius: 10px;
@@ -309,10 +313,7 @@ label{
   .select_groupe {
     background-position: 90% center;
   }
-  .modalContainer {
-    width: 80%;
-    height: 50%;
-  }
+
 .review_form h2 {
     color: #f2bcd0;
     font-size: 20px;
@@ -340,7 +341,30 @@ label{
  
 }
 
-@media screen and (max-width: 315px) {
+
+@media screen and (max-width: 525px) {
+
+  .modal .modalContainer {
+    width: 85%;
+}
+
+.modalInfo {
+  padding: 11px;
+  font-size: 15px;
+}
+
+.modalInfo h2 {
+  font-size: 20px;
+}
+
+}
+
+@media screen and (max-width: 395px) {
+
+  .modal .modalContainer {
+    width: 80%;
+    height: 40%;
+}
   .form_control .seguirInscricao {
     margin-left: 5px;
     font-size: 13px;
@@ -354,7 +378,32 @@ label{
 .review_form p, label {
   font-size: 14px;
 }
+
 }
+
+@media screen and (max-width: 365px) {
+
+  .modal .modalContainer {
+    width: 80%;
+    height: 45%;
+}
+  .form_control .seguirInscricao {
+    margin-left: 5px;
+    font-size: 13px;
+}
+
+.review_form h2 {
+  color: #f2bcd0;
+  font-size: 17px;
+}
+
+.review_form p, label {
+  font-size: 14px;
+}
+
+}
+
+
   
 
 
