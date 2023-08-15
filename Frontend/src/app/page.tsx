@@ -30,8 +30,7 @@ export default function Home() {
   const handleDartSubscribe = () => {
     setIsDartSubscribed(true);
   };
-
-  const targetDate = new Date("2023-09-04T23:59:59"); // Defina a data alvo aqui
+  const targetDate = new Date("2023-09-04T23:59:59").getTime();
 
   const [timeRemaining, setTimeRemaining] = useState({
     days: 0,
@@ -41,7 +40,7 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const now = new Date();
+      const now = new Date().getTime();;
       const difference = targetDate - now;
 
       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
