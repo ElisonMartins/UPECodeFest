@@ -91,19 +91,19 @@ export default function Home() {
           Bem-vindos à Maratona de Programação UPE CodeFest 2023, uma oportunidade única para mostrar suas habilidades em programação e trabalhar em equipe para resolver desafios empolgantes! Esta competição é o lugar onde a criatividade, a resolução de problemas e o trabalho em equipe se unem para criar uma experiência enriquecedora e desafiadora. Organizado pelos estudantes do curso de Engenharia de Software da Universidade de Pernambuco, o evento promete ser uma jornada estimulante no mundo da programação.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-  <div className="hidden md:block text-center">
+  <div className="hidden lg:block text-center">
     <h2 className="text-xl font-bold mb-2">Desenvolva Habilidades</h2>
     <p className="text-lg">
       Neste projeto, você terá a oportunidade de enfrentar desafios complexos que irão testar sua criatividade e habilidades de resolução de problemas. À medida que você busca soluções inovadoras para questões do mundo real, estará ampliando suas habilidades técnicas e desenvolvendo uma mentalidade analítica e crítica que será valiosa em sua carreira.
     </p>
   </div>
-  <div className="hidden md:block text-center">
+  <div className="hidden lg:block text-center">
     <h2 className="text-2xl font-bold mb-2">Trabalhe em Equipe</h2>
     <p className="text-lg">
       A colaboração efetiva em equipe é essencial para o sucesso deste projeto. Você aprenderá a comunicar suas ideias, ouvir os insights dos colegas e tomar decisões conjuntas para superar obstáculos. Essa experiência fortalecerá suas habilidades de comunicação, liderança e gestão de conflitos, qualidades valorizadas em qualquer ambiente de trabalho.
     </p>
   </div>
-  <div className="hidden md:block text-center">
+  <div className="hidden lg:block text-center">
     <h2 className="text-xl font-bold mb-2">Prepare-se para o Mercado</h2>
     <p className="text-lg">
       A colaboração efetiva em equipe é essencial para o sucesso deste projeto. Você aprenderá a comunicar suas ideias, ouvir os insights dos colegas e tomar decisões conjuntas para superar obstáculos. Essa experiência fortalecerá suas habilidades de comunicação, liderança e gestão de conflitos, qualidades valorizadas em qualquer ambiente de trabalho.
