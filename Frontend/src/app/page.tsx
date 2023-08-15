@@ -91,27 +91,27 @@ export default function Home() {
           Bem-vindos à Maratona de Programação UPE CodeFest 2023, uma oportunidade única para mostrar suas habilidades em programação e trabalhar em equipe para resolver desafios empolgantes! Esta competição é o lugar onde a criatividade, a resolução de problemas e o trabalho em equipe se unem para criar uma experiência enriquecedora e desafiadora. Organizado pelos estudantes do curso de Engenharia de Software da Universidade de Pernambuco, o evento promete ser uma jornada estimulante no mundo da programação.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-  <div className="hidden lg:block text-center">
-    <h2 className="text-xl font-bold mb-2">Desenvolva Habilidades</h2>
-    <p className="text-lg">
-      Neste projeto, você terá a oportunidade de enfrentar desafios complexos que irão testar sua criatividade e habilidades de resolução de problemas.
-       À medida que você busca desenvolver soluçoes para novas soluções de software, estará ampliando suas habilidades técnicas e desenvolvendo uma mentalidade analítica e crítica que será valiosa em sua carreira.
-    </p>
-  </div>
-  <div className="hidden lg:block text-center">
-    <h2 className="text-2xl font-bold mb-2">Trabalhe em Equipe</h2>
-    <p className="text-lg">
-      A colaboração efetiva em equipe é essencial para o sucesso deste projeto. Você aprenderá a comunicar suas ideias, ouvir os insights dos colegas e tomar decisões conjuntas para superar obstáculos.
-       Essa experiência fortalecerá suas habilidades de comunicação, liderança e gestão de conflitos, qualidades valorizadas em qualquer ambiente de trabalho.
-    </p>
-  </div>
-  <div className="hidden lg:block text-center">
-    <h2 className="text-xl font-bold mb-2">Prepare-se para o Mercado</h2>
-    <p className="text-lg">
-    Nossa Maratona é a sua chance de ganhar habilidades valiosas para o mercado de trabalho. Ao enfrentar desafios complexos e trabalhar em equipe para solucionar problemas, você estará construindo as bases para uma carreira de sucesso na indústria de tecnologia. Não perca essa oportunidade de aprendizado e networking.
-    </p>
-  </div>
-</div>
+        <div className="hidden lg:block text-center">
+          <h2 className="text-xl font-bold mb-2">Desenvolva Habilidades</h2>
+          <p className="text-lg">
+            Neste projeto, você terá a oportunidade de enfrentar desafios complexos que irão testar sua criatividade e habilidades de resolução de problemas.
+            À medida que você busca desenvolver soluçoes para novas soluções de software, estará ampliando suas habilidades técnicas e desenvolvendo uma mentalidade analítica e crítica que será valiosa em sua carreira.
+          </p>
+        </div>
+        <div className="hidden lg:block text-center">
+          <h2 className="text-2xl font-bold mb-2">Trabalhe em Equipe</h2>
+          <p className="text-lg">
+            A colaboração efetiva em equipe é essencial para o sucesso deste projeto. Você aprenderá a comunicar suas ideias, ouvir os insights dos colegas e tomar decisões conjuntas para superar obstáculos.
+            Essa experiência fortalecerá suas habilidades de comunicação, liderança e gestão de conflitos, qualidades valorizadas em qualquer ambiente de trabalho.
+          </p>
+        </div>
+        <div className="hidden lg:block text-center">
+          <h2 className="text-xl font-bold mb-2">Prepare-se para o Mercado</h2>
+          <p className="text-lg">
+          Nossa Maratona é a sua chance de ganhar habilidades valiosas para o mercado de trabalho. Ao enfrentar desafios complexos e trabalhar em equipe para solucionar problemas, você estará construindo as bases para uma carreira de sucesso na indústria de tecnologia. Não perca essa oportunidade de aprendizado e networking.
+          </p>
+        </div>
+      </div>
 
       </div>
       <div className="bg-back bg-cover bg-center text-white h-[95vh] p-8">
@@ -140,7 +140,7 @@ export default function Home() {
 
               Se você deseja consolidar suas habilidades de programação ou está apenas começando sua jornada no mundo do desenvolvimento web, nosso workshop de JavaScript é projetado para atender às suas necessidades. Não apenas expandiremos seu conhecimento técnico, mas também o incentivaremos a explorar a criatividade e a resolução de problemas, habilidades fundamentais para qualquer programador.
 
-              Venha se juntar a nós nos dias 4, 6 e 8 de setembro, e vamos juntos explorar as maravilhas do JavaScript!
+              Venha se juntar a nós nos dias 4, 6 e 8 de setembro, e vamos juntos explorar as maravilhas do JavaScript!!
             </p>
 
             {!isJavaScriptSubscribed && (
