@@ -75,7 +75,7 @@ export default function Home() {
           </Link>
         </div>
         <nav className="space-x-4 text-xl">
-          <a href="#">Inscreva-se</a>
+          <a href="https://landing-page-seven-lilac.vercel.app/">Inscreva-se</a>
         </nav>
       </header>
       <div className="bg-gradient-to-r from-cor1 to-cor2 h-[95vh] flex flex-col justify-center items-center text-white">
@@ -142,9 +142,10 @@ export default function Home() {
             </p>
 
             {!isJavaScriptSubscribed && (
-              <button className="bg-primary text-white px-4 py-2 rounded-full mt-4" onClick={handleJavaScriptSubscribe}>
+              <a href="https://landing-page-seven-lilac.vercel.app/"><button className="bg-primary text-white px-4 py-2 rounded-full mt-4" onClick={handleJavaScriptSubscribe}>
                 Inscrever-se
               </button>
+              </a>
             )}
           </div>
         )}
@@ -162,22 +163,23 @@ export default function Home() {
             </p>
 
             {!isDartSubscribed && (
-              <button className="bg-primary text-white px-4 py-2 rounded-full mt-4" onClick={handleDartSubscribe}>
+              <a href="https://landing-page-seven-lilac.vercel.app/"><button className="bg-primary text-white px-4 py-2 rounded-full mt-4" onClick={handleDartSubscribe}>
                 Inscrever-se
               </button>
+              </a>
             )}
           </div>
         )}
       </div>
       <div className="bg-white h-[95vh] flex flex-col justify-center items-center p-8">
-        <h1 className="text-4xl font-bold text-center">Junte-se à Maratona!</h1>
+        <h1 className="text-4xl font-bold text-center">Junte-se a Maratona!</h1>
         <p className="text-lg text-center mt-4">
           Não perca a oportunidade de fazer parte da experiência inovadora e desafiadora da UPE CodeFest 2023. Esta é a sua chance de mergulhar em um ambiente de aprendizado intensivo, onde sua criatividade será testada e suas habilidades em programação ganharão destaque.
         </p>
         <p className="text-lg text-center mt-4">
           Venha vivenciar três dias de imersão total nas linguagens JavaScript e Dart. Descubra como essas linguagens podem ser poderosas aliadas para enfrentar os desafios da programação moderna. As oficinas estão programadas para os dias 4, 6 e 8 de setembro, e você não vai querer perder essa incrível oportunidade de aprendizado e networking.
         </p>
-        <a href="link_para_formulario" className="mt-6 bg-primary px-6 py-3 rounded-full text-lg hover:bg-secondary transition-colors duration-300">
+        <a href="https://landing-page-seven-lilac.vercel.app/" className="mt-6 bg-primary text-white px-6 py-3 rounded-full text-lg hover:bg-secondary transition-colors duration-300">
           Inscreva-se Agora
         </a>
       </div>
