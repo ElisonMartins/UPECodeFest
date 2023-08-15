@@ -130,56 +130,63 @@ export default function Home() {
             Dart
           </button>
         </div>
-        {showJavaScriptInfo && (
-          <div className="text-xl text-center mb-4">
-            <h2 className="font-bold mb-2">Workshop de JavaScript</h2>
-            <p className="text-sm md:text-xl">
-              Este é o convite para embarcar em uma jornada de conhecimento no mundo do JavaScript, uma das linguagens de programação mais influentes e versáteis da atualidade. Durante o nosso workshop, que ocorrerá nos dias 4, 6 e 8 de setembro, você terá a oportunidade de mergulhar nos fundamentos essenciais do JavaScript. 
+        {showJavaScriptInfo ? (
+  <div className="text-xl text-center mb-4">
+    <h2 className="font-bold mb-2">Curso de JavaScript</h2>
+    <p className="text-sm md:text-xl">
+      Este é o convite para embarcar em uma jornada de conhecimento no mundo do JavaScript, uma das linguagens de programação mais influentes e versáteis da atualidade. Durante o nosso curso, que ocorrerá nos dias 4, 6 e 8 de setembro, você terá a oportunidade de mergulhar nos fundamentos essenciais do JavaScript. 
 
-              O JavaScript desempenha um papel fundamental na construção de aplicações web interativas e dinâmicas. Você terá a chance de compreender como transformar suas ideias em código funcional, à medida que aprofundamos na riqueza de recursos que o JavaScript oferece.
+      O JavaScript desempenha um papel fundamental na construção de aplicações web interativas e dinâmicas. Você terá a chance de compreender como transformar suas ideias em código funcional, à medida que aprofundamos na riqueza de recursos que o JavaScript oferece.
 
-              Se você deseja consolidar suas habilidades de programação ou está apenas começando sua jornada no mundo do desenvolvimento web, nosso workshop de JavaScript é projetado para atender às suas necessidades. Não apenas expandiremos seu conhecimento técnico, mas também o incentivaremos a explorar a criatividade e a resolução de problemas, habilidades fundamentais para qualquer programador.
+      Se você deseja consolidar suas habilidades de programação ou está apenas começando sua jornada no mundo do desenvolvimento web, nosso curso de JavaScript é projetado para atender às suas necessidades. Não apenas expandiremos seu conhecimento técnico, mas também o incentivaremos a explorar a criatividade e a resolução de problemas, habilidades fundamentais para qualquer programador.
 
-              Venha se juntar a nós nos dias 4, 6 e 8 de setembro, e vamos juntos explorar as maravilhas do JavaScript!!
-            </p>
+      Venha se juntar a nós nos dias 4, 6 e 8 de setembro, e vamos juntos explorar as maravilhas do JavaScript!
+    </p>
 
-            {!isJavaScriptSubscribed && (
-              <a href="https://landing-page-seven-lilac.vercel.app/"><button className="bg-primary text-white px-4 py-2 rounded-full mt-4" onClick={handleJavaScriptSubscribe}>
-                Inscrever-se
-              </button>
-              </a>
-            )}
-          </div>
-        )}
-        {showDartInfo && (
-          <div className="text-xl text-center mb-4">
-            <h2 className="font-bold mb-2">Workshop de Dart</h2>
-            <p className="text-sm md:text-xl">
-              Estamos animados para convidá-lo a participar do nosso workshop exclusivo de Dart, que ocorrerá nos dias 4, 6 e 8 de setembro. O Dart, uma linguagem de programação moderna e poderosa, é amplamente reconhecido por ser a base do framework Flutter, utilizado no desenvolvimento de aplicativos móveis e interfaces dinâmicas.
+    {!isJavaScriptSubscribed && (
+      <a href="https://landing-page-seven-lilac.vercel.app/">
+        <button className="bg-primary text-white px-4 py-2 rounded-full mt-4" onClick={handleJavaScriptSubscribe}>
+          Inscrever-se
+        </button>
+      </a>
+    )}
+  </div>
+) : showDartInfo ? (
+  <div className="text-xl text-center mb-4">
+    <h2 className="font-bold mb-2">Curso de Dart</h2>
+    <p className="text-sm md:text-xl">
+      Estamos animados para convidá-lo a participar do nosso curso exclusivo de Dart, que ocorrerá nos dias 4, 6 e 8 de setembro. O Dart, uma linguagem de programação moderna e poderosa, é amplamente reconhecido por ser a base do framework Flutter, utilizado no desenvolvimento de aplicativos móveis e interfaces dinâmicas.
 
-              Durante este workshop, iremos mergulhar fundo no mundo do Dart. Você terá a oportunidade de explorar os conceitos fundamentais da linguagem. Compreenderemos como o Dart desempenha um papel crucial na construção de aplicativos fluidos e de alto desempenho com o Flutter.
+      Durante este curso, iremos mergulhar fundo no mundo do Dart. Você terá a oportunidade de explorar os conceitos fundamentais da linguagem. Compreenderemos como o Dart desempenha um papel crucial na construção de aplicativos fluidos e de alto desempenho com o Flutter.
 
-              Nosso objetivo é capacitá-lo com as habilidades necessárias para desenvolver aplicações funcionais. Você sairá deste workshop com uma compreensão aprofundada da linguagem e a confiança para começar a desenvolver seus próprios.
+      Nosso objetivo é capacitá-lo com as habilidades necessárias para desenvolver aplicações funcionais. Você sairá deste curso com uma compreensão da linguagem e a confiança para começar a desenvolver seus próprios códigos.
 
-              Se você é um entusiasta de desenvolvimento mobile, um curioso explorador ou alguém em busca de ampliar suas habilidades, junte-se a nós nos dias 4, 6 e 8 de setembro. Vamos mergulhar no Dart e descobrir como ele pode transformar suas ideias em aplicativos funcionais e atraentes.
-            </p>
+      Se você é um entusiasta de desenvolvimento, um curioso explorador ou alguém em busca de ampliar suas habilidades, junte-se a nós nos dias 4, 6 e 8 de setembro. Vamos mergulhar no Dart e descobrir como ele pode transformar suas ideias em aplicativos funcionais e atraentes.
+    </p>
 
-            {!isDartSubscribed && (
-              <a href="https://landing-page-seven-lilac.vercel.app/"><button className="bg-primary text-white px-4 py-2 rounded-full mt-4" onClick={handleDartSubscribe}>
-                Inscrever-se
-              </button>
-              </a>
-            )}
-          </div>
-        )}
+    {!isDartSubscribed && (
+      <a href="https://landing-page-seven-lilac.vercel.app/">
+        <button className="bg-primary text-white px-4 py-2 rounded-full mt-4">
+          Inscrever-se
+        </button>
+      </a>
+    )}
+  </div>
+) : (
+  <div className="text-xl text-center mb-4">
+    <h2 className="font-bold mb-2">Conheça os cursos que iremos oferecer</h2>
+    <p className="text-lg">
+      Selecione um dos cursos acima para obter mais informações e inscrever-se. Esta é uma oportunidade única para aprender e aprimorar suas habilidades de programação nas linguagens JavaScript e Dart. Não perca a chance de fazer parte deste evento enriquecedor!
+    </p>
+  </div>
+)}
+
       </div>
       <div className="bg-white h-[95vh] flex flex-col justify-center items-center p-8">
         <h1 className="text-4xl font-bold text-center">Junte-se a Maratona!</h1>
         <p className="text-lg text-center mt-4">
           Não perca a oportunidade de fazer parte da experiência inovadora e desafiadora da UPE CodeFest 2023. Esta é a sua chance de mergulhar em um ambiente de aprendizado intensivo, onde sua criatividade será testada e suas habilidades em programação ganharão destaque.
-        </p>
-        <p className="text-lg text-center mt-4">
-          Venha vivenciar três dias de imersão total nas linguagens JavaScript e Dart. Descubra como essas linguagens podem ser poderosas aliadas para enfrentar os desafios da programação moderna. As oficinas estão programadas para os dias 4, 6 e 8 de setembro, e você não vai querer perder essa incrível oportunidade de aprendizado e networking.
+          Você tambem poderá vivenciar três dias de imersão total nas linguagens JavaScript e Dart. Descubra como essas linguagens podem ser poderosas aliadas para enfrentar os desafios da programação moderna. As oficinas estão programadas para os dias 4, 6 e 8 de setembro, e você não vai querer perder essa incrível oportunidade de aprendizado e networking.
         </p>
         <a href="https://landing-page-seven-lilac.vercel.app/" className="mt-6 bg-primary text-white px-6 py-3 rounded-full text-lg hover:bg-secondary transition-colors duration-300">
           Inscreva-se Agora
