@@ -114,7 +114,7 @@ export default function Home() {
       </div>
 
       </div>
-      <div className="bg-back bg-cover bg-center text-white h-[95vh] p-8">
+      <div className="bg-back bg-cover bg-center text-white h-[95%] md:h-[95vh] p-8">
         <h1 className="text-4xl font-bold mb-4 text-center">Oficinas</h1>
         <div className="flex justify-center space-x-4 mb-4">
           <button className="bg-primary text-white px-6 py-3 rounded-full" onClick={toggleJavaScriptInfo}>
@@ -182,7 +182,7 @@ export default function Home() {
 )}
 
       </div>
-      <div className="bg-white h-[95vh] flex flex-col justify-center items-center p-8">
+      <div className="bg-white h-[95%] md:h-[95vh] flex flex-col justify-center items-center p-8">
         <h1 className="text-4xl font-bold text-center">Junte-se a Maratona!</h1>
         <p className="text-lg text-center mt-4">
           Não perca a oportunidade de fazer parte da experiência inovadora e desafiadora da UPE CodeFest 2023. Esta é a sua chance de mergulhar em um ambiente de aprendizado intensivo, onde sua criatividade será testada e suas habilidades em programação ganharão destaque.
