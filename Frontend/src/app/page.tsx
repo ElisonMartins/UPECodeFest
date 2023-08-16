@@ -85,7 +85,7 @@ export default function Home() {
           {timeRemaining.days} dias, {timeRemaining.hours} horas e {timeRemaining.minutes} minutos até o início da Maratona!
         </div>
       </div>
-      <div className="bg-white h-[95%] md:h-[95vh] text-center p-8 mb-5">
+      <div className="bg-white h-[95%] lg:h-[95vh] text-center p-8 mb-5">
         <h1 className="text-4xl font-bold mb-4">Sobre a Maratona</h1>
         <p className="text-xl mb-10">
           Bem-vindos à Maratona de Programação UPE CodeFest 2023, uma oportunidade única para mostrar suas habilidades em programação e trabalhar em equipe para resolver desafios empolgantes! Esta competição é o lugar onde a criatividade, a resolução de problemas e o trabalho em equipe se unem para criar uma experiência enriquecedora e desafiadora. Organizado pelos estudantes do curso de Engenharia de Software da Universidade de Pernambuco, o evento promete ser uma jornada estimulante no mundo da programação.
@@ -122,7 +122,7 @@ export default function Home() {
       </div>
 
       </div>
-      <div className="bg-back bg-cover bg-center text-white h-[95%] md:h-[95vh] p-8">
+      <div className="bg-back bg-cover bg-center text-white h-[95%] lg:h-[95vh] p-8">
         <h1 className="text-4xl font-bold mb-4 text-center">Oficinas</h1>
         <div className="flex justify-center space-x-4 mb-4">
           <button className="bg-primary text-white px-6 py-3 rounded-full" onClick={toggleJavaScriptInfo}>
