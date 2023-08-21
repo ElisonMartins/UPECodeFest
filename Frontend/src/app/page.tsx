@@ -95,7 +95,7 @@ export default function Home() {
           <h1 className="text-4xl lg:text-6xl">Bem-vindo à Maratona de Programação - 2023</h1>
           <span className="text-5xl lg:text-7xl border-solid border-2 border-white p-3 m-3">UPE CodeFest</span>
           <a href="https://inscricaomaratona.vercel.app/">
-          <button className="bg-primary text-white px-4 py-2 rounded-full mt-4" onClick={handleJavaScriptSubscribe}>
+          <button className="bg-primary text-white px-4 py-2 rounded-full mt-4 hover:bg-secondary transform hover:scale-110 transition duration-300 ease-in-out" onClick={handleJavaScriptSubscribe}>
             Inscrever-se
           </button>
       </a>
@@ -107,13 +107,17 @@ export default function Home() {
       <div className="bg-white h-[95%] lg:h-[95vh] text-center p-8 mb-5">
         <h1 className="text-4xl font-bold mb-4">Sobre a Maratona</h1>
         <p className="text-xl mb-10">
-          Bem-vindos à Maratona de Programação UPE CodeFest 2023, uma oportunidade única para mostrar suas habilidades em programação e trabalhar em equipe para resolver desafios empolgantes! Esta competição é o lugar onde a criatividade, a resolução de problemas e o trabalho em equipe se unem para criar uma experiência enriquecedora e desafiadora. Organizado pelos estudantes do curso de Engenharia de Software da Universidade de Pernambuco, o evento promete ser uma jornada estimulante no mundo da programação.
+          Bem-vindos à Maratona de Programação UPE CodeFest 2023, uma oportunidade única para mostrar suas habilidades em programação e trabalhar em equipe para resolver desafios empolgantes!
+           Esta competição é o lugar onde a criatividade, a resolução de problemas e o trabalho em equipe se unem para criar uma experiência enriquecedora e desafiadora. 
+          Organizado pelos estudantes do 5° periodo do curso de Engenharia de Software da Universidade de Pernambuco, o evento promete ser uma jornada estimulante no mundo da programação.
+          A competição ocorrerá no dia <span className="border-b-2 border-teal-500">14 de setembro</span>, proporcionando a você a chance de demonstrar seu talento e paixão pela programação. Não perca esta oportunidade de participar de um evento que reúne os melhores e mais brilhantes da área.
+           Junte-se a nós para um dia emocionante de desafios e aprendizado!
         </p>
         <p className="text-xl">
           Acesse o edital para obter mais informaçoes
         </p>
         <a target="_blank" href="https://docs.google.com/document/d/1ubEZCjZdIO9NeFaEl5aEu99ErQRqUJDTHXW0GGq14ig/edit?usp=drivesdk">
-        <button className="bg-primary text-white px-8 py-2 rounded-full mt-4 text-lg">
+        <button className="bg-primary text-white px-8 py-2 rounded-full mt-4 text-lg hover:bg-secondary transform hover:scale-105 transition duration-300 ease-in-out">
           Edital
         </button>
       </a>
@@ -144,13 +148,13 @@ export default function Home() {
       <div className="bg-back bg-cover bg-center text-white h-[95%] lg:h-[95vh] p-8">
         <h1 className="text-4xl font-bold mb-4 text-center">Oficinas</h1>
         <div className="flex justify-center space-x-4 mb-4">
-          <button className="bg-primary text-white px-6 py-3 rounded-full" onClick={toggleJavaScriptInfo}>
+          <button className="bg-primary text-white px-6 py-3 rounded-full hover:bg-secondary" onClick={toggleJavaScriptInfo}>
             <span className="mr-2">
               <FaJs className="inline-block h-6 w-6" />
             </span>
             JavaScript
           </button>
-          <button className="bg-primary text-white px-6 py-3 rounded-full" onClick={toggleDartInfo}>
+          <button className="bg-primary text-white px-6 py-3 rounded-full hover:bg-secondary" onClick={toggleDartInfo}>
             <span className="mr-2">
               <FaCode className="inline-block h-6 w-6" />
             </span>
@@ -161,18 +165,18 @@ export default function Home() {
   <div className="text-xl text-center mb-4">
     <h2 className="font-bold mb-2">Curso de JavaScript</h2>
     <p className="text-sm md:text-xl">
-      Este é o convite para embarcar em uma jornada de conhecimento no mundo do JavaScript, uma das linguagens de programação mais influentes e versáteis da atualidade. Durante o nosso curso, que ocorrerá nos dias 4, 6 e 8 de setembro, você terá a oportunidade de mergulhar nos fundamentos essenciais do JavaScript. 
+      Este é o convite para embarcar em uma jornada de conhecimento no mundo do JavaScript, uma das linguagens de programação mais influentes e versáteis da atualidade. Durante o nosso curso, que ocorrerá nos dias<span className="text-teal-500"> 4, 5 e 6 de setembro</span>, você terá a oportunidade de mergulhar nos fundamentos essenciais do JavaScript. 
 
       O JavaScript desempenha um papel fundamental na construção de aplicações web interativas e dinâmicas. Você terá a chance de compreender como transformar suas ideias em código funcional, à medida que aprofundamos na riqueza de recursos que o JavaScript oferece.
 
       Se você deseja consolidar suas habilidades de programação ou está apenas começando sua jornada no mundo do desenvolvimento web, nosso curso de JavaScript é projetado para atender às suas necessidades. Não apenas expandiremos seu conhecimento técnico, mas também o incentivaremos a explorar a criatividade e a resolução de problemas, habilidades fundamentais para qualquer programador.
 
-      Venha se juntar a nós nos dias 4, 6 e 8 de setembro, e vamos juntos explorar as maravilhas do JavaScript!
+      Venha se juntar a nós nos dias<span className="text-teal-500"> 4, 5 e 6 de setembro</span> , e vamos juntos explorar as maravilhas do JavaScript!
     </p>
 
     {!isJavaScriptSubscribed && (
       <a href="https://inscricaomaratona.vercel.app/">
-        <button className="bg-primary text-white px-4 py-2 rounded-full mt-4" onClick={handleJavaScriptSubscribe}>
+        <button className="bg-primary text-white px-4 py-2 rounded-full mt-4 hover:bg-secondary transform hover:scale-105 transition duration-300 ease-in-out" onClick={handleJavaScriptSubscribe}>
           Inscrever-se
         </button>
       </a>
@@ -182,18 +186,18 @@ export default function Home() {
   <div className="text-xl text-center mb-4">
     <h2 className="font-bold mb-2">Curso de Dart</h2>
     <p className="text-sm md:text-xl">
-      Estamos animados para convidá-lo a participar do nosso curso exclusivo de Dart, que ocorrerá nos dias 4, 6 e 8 de setembro. O Dart, uma linguagem de programação moderna e poderosa, é amplamente reconhecido por ser a base do framework Flutter, utilizado no desenvolvimento de aplicativos móveis e interfaces dinâmicas.
+      Estamos animados para convidá-lo a participar do nosso curso exclusivo de Dart, que ocorrerá nos dias<span className="text-teal-500"> 4, 5 e 6 de setembro</span>. O Dart, uma linguagem de programação moderna e poderosa, é amplamente reconhecido por ser a base do framework Flutter, utilizado no desenvolvimento de aplicativos móveis e interfaces dinâmicas.
 
       Durante este curso, iremos mergulhar fundo no mundo do Dart. Você terá a oportunidade de explorar os conceitos fundamentais da linguagem. Compreenderemos como o Dart desempenha um papel crucial na construção de aplicativos fluidos e de alto desempenho com o Flutter.
 
       Nosso objetivo é capacitá-lo com as habilidades necessárias para desenvolver aplicações funcionais. Você sairá deste curso com uma compreensão da linguagem e a confiança para começar a desenvolver seus próprios códigos.
 
-      Se você é um entusiasta de desenvolvimento, um curioso explorador ou alguém em busca de ampliar suas habilidades, junte-se a nós nos dias 4, 6 e 8 de setembro. Vamos mergulhar no Dart e descobrir como ele pode transformar suas ideias em aplicativos funcionais e atraentes.
+      Se você é um entusiasta de desenvolvimento, um curioso explorador ou alguém em busca de ampliar suas habilidades, junte-se a nós nos dias<span className="text-teal-500"> 4, 5 e 6 de setembro</span>. Vamos mergulhar no Dart e descobrir como ele pode transformar suas ideias em aplicativos funcionais e atraentes.
     </p>
 
     {!isDartSubscribed && (
       <a href="https://inscricaomaratona.vercel.app/">
-        <button className="bg-primary text-white px-4 py-2 rounded-full mt-4">
+        <button className="bg-primary text-white px-4 py-2 rounded-full mt-4 hover:bg-secondary transform hover:scale-105 transition duration-300 ease-in-out">
           Inscrever-se
         </button>
       </a>
@@ -212,12 +216,13 @@ export default function Home() {
       <div className="bg-white h-[95%] md:h-[130vh] lg:h-[95vh] flex flex-col justify-center items-center p-8">
         <h1 className="text-4xl font-bold text-center">Junte-se a Maratona!</h1>
         <p className="text-lg text-center mt-4">
-          Não perca a oportunidade de fazer parte da experiência inovadora e desafiadora da UPE CodeFest 2023. Esta é a sua chance de mergulhar em um ambiente de aprendizado intensivo, onde sua criatividade será testada e suas habilidades em programação ganharão destaque.
-          Você tambem poderá vivenciar três dias de imersão total nas linguagens JavaScript e Dart. Descubra como essas linguagens podem ser poderosas aliadas para enfrentar os desafios da programação moderna. As oficinas estão programadas para os dias 4, 6 e 8 de setembro, e você não vai querer perder essa incrível oportunidade de aprendizado e networking.
+          Não perca a oportunidade de fazer parte da experiência inovadora e desafiadora da UPE CodeFest 2023. Esta é a sua chance de mergulhar em um ambiente de aprendizado intensivo, onde sua criatividade será testada e suas habilidades em programação ganharão destaque, A competição ocorrerá no dia <span className="border-b-2 border-teal-500">14 de setembro</span>.
+          Você tambem poderá vivenciar três dias de imersão total nas linguagens JavaScript e Dart. Descubra como essas linguagens podem ser poderosas aliadas para enfrentar os desafios da programação moderna. As oficinas estão programadas para os dias <span className="border-b-2 border-teal-500"> 4, 5 e 6 de setembro</span>, e você não vai querer perder essa incrível oportunidade de aprendizado e networking.
         </p>
-        <a href="https://inscricaomaratona.vercel.app/" className="mt-6 bg-primary text-white px-6 py-3 rounded-full text-lg hover:bg-secondary transition-colors duration-300">
-          Inscreva-se Agora
-        </a>
+        <a href="https://inscricaomaratona.vercel.app/" className="mt-6 bg-primary text-white px-6 py-3 rounded-full text-lg hover:bg-secondary transform hover:scale-105 transition duration-300 ease-in-out">
+  Inscreva-se Agora
+</a>
+
       </div>
       
 

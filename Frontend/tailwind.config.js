@@ -12,6 +12,7 @@ module.exports = {
         'cor1': '#0ec0c1',
         'cor2': '#210123',
         'primary': '#0ec0c1',
+        'secondary': '#089599'
       },
       backgroundImage: {
         'back': "url('../../public/blob-scene-bg.png')",
