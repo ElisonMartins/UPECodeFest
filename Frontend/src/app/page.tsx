@@ -6,6 +6,10 @@ import { RiInstagramFill } from 'react-icons/ri';
 import { FaJs, FaCode } from 'react-icons/fa';
 
 import logo from './../../public/Logo_CodeFest.png';
+import meclogo from './../../public/MEC-logo.png';
+import detroidlogo from './../../public/detroid-logo.png';
+
+import './style.css'
 
 export default function Home() {
   const [showJavaScriptInfo, setShowJavaScriptInfo] = useState(false);
@@ -59,6 +63,15 @@ export default function Home() {
 
   return (
     <div className="text-center">
+
+
+     <div className='inicio '>
+      <section className="animation-container">
+        <section id="up"></section>
+        <section id="down"></section>
+        <section id="left"></section>
+        <section id="right"></section>
+      
       <header className="top-0 left-0 right-0 flex items-center text-white justify-between px-4 py-2 bg-transparent absolute">
         <div className="flex items-center space-x-4">
           <Link href="/">
@@ -74,17 +87,23 @@ export default function Home() {
             </div>
           </Link>
         </div>
-        <nav className="space-x-4 text-xl">
-          <a href="https://landing-page-seven-lilac.vercel.app/">Inscreva-se</a>
-        </nav>
+        
       </header>
-      <div className="bg-gradient-to-r from-cor1 to-cor2 h-[95vh] flex flex-col justify-center items-center text-white">
-        <h1 className="text-6xl font-bold m-5">UPE CodeFest</h1>
-        <h3 className="text-2xl font-bold mb-10">Maratona de Programação</h3>
-        <div className="text-3xl mt-4 flex">
-          {timeRemaining.days} dias, {timeRemaining.hours} horas e {timeRemaining.minutes} minutos até o início da Maratona!
-        </div>
-      </div>
+      
+
+        <section id="details">
+          <h1 className="text-4xl lg:text-6xl">Bem-vindo à Maratona de Programação - 2023</h1>
+          <span className="text-5xl lg:text-7xl border-solid border-2 border-white p-3 m-3">UPE CodeFest</span>
+          <a href="https://inscricaomaratona.vercel.app/">
+          <button className="bg-primary text-white px-4 py-2 rounded-full mt-4" onClick={handleJavaScriptSubscribe}>
+            Inscrever-se
+          </button>
+      </a>
+        </section>
+      </section>
+     </div>
+
+
       <div className="bg-white h-[95%] lg:h-[95vh] text-center p-8 mb-5">
         <h1 className="text-4xl font-bold mb-4">Sobre a Maratona</h1>
         <p className="text-xl mb-10">
@@ -152,7 +171,7 @@ export default function Home() {
     </p>
 
     {!isJavaScriptSubscribed && (
-      <a href="https://landing-page-seven-lilac.vercel.app/">
+      <a href="https://inscricaomaratona.vercel.app/">
         <button className="bg-primary text-white px-4 py-2 rounded-full mt-4" onClick={handleJavaScriptSubscribe}>
           Inscrever-se
         </button>
@@ -173,7 +192,7 @@ export default function Home() {
     </p>
 
     {!isDartSubscribed && (
-      <a href="https://landing-page-seven-lilac.vercel.app/">
+      <a href="https://inscricaomaratona.vercel.app/">
         <button className="bg-primary text-white px-4 py-2 rounded-full mt-4">
           Inscrever-se
         </button>
@@ -190,19 +209,44 @@ export default function Home() {
 )}
 
       </div>
-      <div className="bg-white h-[95%] md:h-[95vh] flex flex-col justify-center items-center p-8">
+      <div className="bg-white h-[95%] md:h-[130vh] lg:h-[95vh] flex flex-col justify-center items-center p-8">
         <h1 className="text-4xl font-bold text-center">Junte-se a Maratona!</h1>
         <p className="text-lg text-center mt-4">
           Não perca a oportunidade de fazer parte da experiência inovadora e desafiadora da UPE CodeFest 2023. Esta é a sua chance de mergulhar em um ambiente de aprendizado intensivo, onde sua criatividade será testada e suas habilidades em programação ganharão destaque.
           Você tambem poderá vivenciar três dias de imersão total nas linguagens JavaScript e Dart. Descubra como essas linguagens podem ser poderosas aliadas para enfrentar os desafios da programação moderna. As oficinas estão programadas para os dias 4, 6 e 8 de setembro, e você não vai querer perder essa incrível oportunidade de aprendizado e networking.
         </p>
-        <a href="https://landing-page-seven-lilac.vercel.app/" className="mt-6 bg-primary text-white px-6 py-3 rounded-full text-lg hover:bg-secondary transition-colors duration-300">
+        <a href="https://inscricaomaratona.vercel.app/" className="mt-6 bg-primary text-white px-6 py-3 rounded-full text-lg hover:bg-secondary transition-colors duration-300">
           Inscreva-se Agora
         </a>
       </div>
-      <div className="bg-white h-[95vh] p-8 flex justify-center">
+      
+
+      <div className="bg-white h-screen flex flex-col ">
+      <div className="p-8">
         <h1 className="text-4xl font-bold">Patrocinadores</h1>
       </div>
+      <div className="md:flex md:justify-center ">
+        <Image
+          priority
+          src={meclogo} // Replace with the actual path to MEC Logo
+          alt="MEC Logo"
+          width={300}
+          height={300}
+          className="mx-4"
+        />
+        <Image
+          priority
+          src={detroidlogo} // Replace with the actual path to Detroit Logo
+          alt="Detroit Logo"
+          width={300}
+          height={300}
+          className="mx-4"
+        />
+      </div>
+    </div>
+
+
+
       <footer className="bg-back bg-cover bg-center text-white h-[10vh] p-4 flex justify-center items-center">
         <a href="https://www.instagram.com/upecodefest/" target="_blank" rel="noopener noreferrer" className="instagram-link">
           <RiInstagramFill size={30} />

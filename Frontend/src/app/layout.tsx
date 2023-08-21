@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'CodeFest',
   description: 'Maratona de Programaçâo',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
