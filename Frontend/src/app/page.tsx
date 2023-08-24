@@ -8,6 +8,7 @@ import { FaJs, FaCode } from 'react-icons/fa';
 import logo from './../../public/Logo_CodeFest.png';
 import meclogo from './../../public/MEC-logo.png';
 import detroidlogo from './../../public/detroid-logo.png';
+import tyoflanlogo from './../../public/tyoflan-logo.png';
 
 import './style.css'
 
@@ -72,26 +73,27 @@ export default function Home() {
         <section id="left"></section>
         <section id="right"></section>
       
-      <header className="top-0 left-0 right-0 flex items-center text-white justify-between px-4 py-2 bg-transparent absolute">
-        <div className="flex items-center space-x-4">
-          <Link href="/">
-            <div className="bg-logo">
-              <Image
-                priority
-                src={logo}
-                alt="Maratona de programaçao"
-                width={50}
-                height={50}
-                className=""
-              />
-            </div>
-          </Link>
-        </div>
-        
-      </header>
       
 
         <section id="details">
+          
+          <header className="top-0 left-0 right-0 flex items-center text-white justify-between px-4 py-2 bg-transparent">
+            <div className="flex items-center space-x-4">
+              <Link href="/">
+                <div className="bg-logo">
+                  <Image
+                    priority
+                    src={logo}
+                    alt="Maratona de programaçao"
+                    width={130}
+                    height={130}
+                    className=""
+                  />
+                </div>
+              </Link>
+            </div>
+            
+          </header>
           <h1 className="text-4xl lg:text-6xl">Bem-vindo à Maratona de Programação - 2023</h1>
           <span className="text-5xl lg:text-7xl border-solid border-2 border-white p-3 m-3">UPE CodeFest</span>
           <a href="https://inscricaomaratona.vercel.app/">
@@ -226,11 +228,11 @@ export default function Home() {
       </div>
       
 
-      <div className="bg-white h-screen flex flex-col ">
+      <div className="bg-white h-[95%] md:h-[130vh] lg:h-[95vh] flex flex-col ">
       <div className="p-8">
         <h1 className="text-4xl font-bold">Patrocinadores</h1>
       </div>
-      <div className="md:flex md:justify-center ">
+      <div className="md:flex md:justify-center flex-wrap m-8">
         <Image
           priority
           src={meclogo} // Replace with the actual path to MEC Logo
@@ -242,6 +244,15 @@ export default function Home() {
         <Image
           priority
           src={detroidlogo} // Replace with the actual path to Detroit Logo
+          alt="Detroit Logo"
+          width={300}
+          height={300}
+          className="mx-4"
+        />
+
+        <Image
+          priority
+          src={tyoflanlogo} // Replace with the actual path to Detroit Logo
           alt="Detroit Logo"
           width={300}
           height={300}
