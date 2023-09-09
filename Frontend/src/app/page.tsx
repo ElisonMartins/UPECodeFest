@@ -9,6 +9,8 @@ import logo from './../../public/Logo_CodeFest.png';
 import meclogo from './../../public/MEC-logo.png';
 import detroidlogo from './../../public/detroid-logo.png';
 import tyoflanlogo from './../../public/tyoflan-logo.png';
+import innovalogo from './../../public/innova-logo.jpg';
+import viverlogo from './../../public/viver-logo.png';
 
 import './style.css'
 
@@ -228,40 +230,62 @@ export default function Home() {
       </div>
       
 
-      <div className="bg-white h-[95%] md:h-[130vh] lg:h-[95vh] flex flex-col ">
+      <div className="bg-white min-h-[95%] md:min-h-[130vh] lg:min-h-[95vh] flex flex-col">
       <div className="p-8">
         <h1 className="text-4xl font-bold">Patrocinadores</h1>
       </div>
       <div className="md:flex md:justify-center flex-wrap m-8">
         <Image
           priority
-          src={meclogo} // Replace with the actual path to MEC Logo
+          src={meclogo} 
           alt="MEC Logo"
           width={300}
           height={300}
-          className="mx-4"
+          className="m-4"
         />
         <Image
           priority
-          src={detroidlogo} // Replace with the actual path to Detroit Logo
+          src={detroidlogo} 
           alt="Detroit Logo"
           width={300}
           height={300}
-          className="mx-4"
+          className="m-4"
         />
 
         <Image
           priority
-          src={tyoflanlogo} // Replace with the actual path to Detroit Logo
+          src={tyoflanlogo} 
           alt="Detroit Logo"
           width={300}
           height={300}
-          className="mx-4"
+          className="m-4"
         />
+
+        
+      </div>
+
+      <div className="md:flex md:justify-center flex-wrap m-8">
+      <Image
+          priority
+          src={innovalogo} 
+          alt="Detroit Logo"
+          width={300}
+          height={300}
+          className="m-4"
+        />
+
+        <Image
+          priority
+          src={viverlogo} 
+          alt="Detroit Logo"
+          width={300}
+          height={300}
+          className="m-4"
+        />
+
+        
       </div>
     </div>
-
-
 
       <footer className="bg-back bg-cover bg-center text-white h-[10vh] p-4 flex justify-center items-center">
         <a href="https://www.instagram.com/upecodefest/" target="_blank" rel="noopener noreferrer" className="instagram-link">
